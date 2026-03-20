@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Labs — Uncooked Climate Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --green: #1a3a2a; --green-mid: #2d5a3d; --green-light: #4a7c5a;
+    --cream: #f2ead8; --cream-dark: #e8dcc4;
+    --blue: #2a3f5a; --blue-light: #4a6a8a;
+    --rust: #8b3a2a; --ink: #1a1a16;
+    --paper: #f7f2e4; --grid: rgba(42,63,90,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; } html { scroll-behavior:smooth; }
+  body { background:var(--paper); color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.6; cursor:crosshair; }
+  body::before { content:''; position:fixed; inset:0; background-image: repeating-linear-gradient(0deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px), repeating-linear-gradient(90deg,transparent,transparent 27px,rgba(42,63,90,0.03) 27px,rgba(42,63,90,0.03) 28px); pointer-events:none; z-index:0; }
+  body::after { content:''; position:fixed; inset:0; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.6; }
+  .wrap { position:relative; z-index:1; }
+  nav { border-bottom:2px solid var(--ink); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 32px; background:var(--cream); position:sticky; top:0; z-index:100; }
+  .nav-links-left, .nav-links-right { display:flex; gap:28px; list-style:none; }
+  .nav-links-right { justify-content:flex-end; }
+  nav a { text-decoration:none; color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; padding:20px 0; display:block; border-bottom:2px solid transparent; transition:border-color 0.15s,color 0.15s; }
+  nav a:hover, nav a.active { border-bottom-color:var(--rust); color:var(--rust); }
+  .nav-logo { text-align:center; padding:14px 32px; border-left:1px solid var(--ink); border-right:1px solid var(--ink); }
+  .nav-logo .wordmark { font-family:'Playfair Display',serif; font-size:18px; font-weight:900; letter-spacing:-0.02em; color:var(--green); text-decoration:none; display:block; line-height:1.1; }
+  .nav-logo .sub { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); font-family:'IBM Plex Mono',monospace; }
+  .ticker { background:var(--green); color:var(--cream); padding:7px 0; overflow:hidden; border-bottom:1px solid var(--ink); }
+  .ticker-inner { display:flex; animation:ticker 28s linear infinite; white-space:nowrap; }
+  .ticker-inner span { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; padding:0 40px; opacity:0.9; }
+  .ticker-inner span::before { content:'◆'; margin-right:40px; opacity:0.5; }
+  @keyframes ticker { from{transform:translateX(0);}to{transform:translateX(-50%);} }
+  .section-header { display:flex; align-items:baseline; gap:16px; padding:20px 48px 18px; border-bottom:1px solid rgba(26,26,22,0.2); background:var(--cream-dark); }
+  .section-title { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink); font-weight:500; }
+  .section-line { flex:1; height:1px; background:rgba(26,26,22,0.2); }
+  .section-count { font-size:10px; color:rgba(26,26,22,0.4); letter-spacing:0.1em; }
+  .btn-primary { background:var(--green); color:var(--cream); padding:12px 24px; text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; border:2px solid var(--green); transition:all 0.15s; display:inline-block; }
+  .btn-primary:hover { background:var(--rust); border-color:var(--rust); }
+  .btn-ghost { background:transparent; color:var(--ink); padding:12px 24px; text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; border:2px solid var(--ink); transition:all 0.15s; display:inline-block; }
+  .btn-ghost:hover { background:var(--ink); color:var(--cream); }
+  footer { background:var(--ink); color:rgba(242,234,216,0.7); padding:40px 48px; display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:40px; align-items:start; }
+  .footer-brand .wordmark { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--cream); display:block; margin-bottom:6px; letter-spacing:-0.02em; }
+  .footer-brand .tagline { font-size:10px; letter-spacing:0.1em; opacity:0.5; font-style:italic; font-family:'Playfair Display',serif; }
+  .footer-col-title { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(242,234,216,0.4); margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid rgba(242,234,216,0.1); }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .footer-links a { color:rgba(242,234,216,0.6); text-decoration:none; font-size:12px; transition:color 0.15s; font-family:'IBM Plex Sans',sans-serif; font-weight:300; }
+  .footer-links a:hover { color:var(--cream); }
+  .footer-legal { grid-column:1/-1; padding-top:24px; border-top:1px solid rgba(242,234,216,0.1); display:flex; justify-content:space-between; align-items:center; }
+  .footer-legal-text { font-size:10px; opacity:0.35; letter-spacing:0.05em; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);} }
+
+
+  .labs-hero { padding:52px 48px 44px; border-bottom:2px solid var(--ink); display:grid; grid-template-columns:1fr 360px; gap:48px; }
+  .lh-left {}
+  .lh-kicker { font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--rust); margin-bottom:14px; }
+  .lh-title { font-family:'Playfair Display',serif; font-size:clamp(44px,5.5vw,68px); font-weight:900; line-height:0.92; color:var(--green); letter-spacing:-0.03em; margin-bottom:14px; }
+  .lh-title em { font-style:italic; color:var(--rust); }
+  .lh-desc { font-family:'IBM Plex Sans',sans-serif; font-size:13.5px; line-height:1.75; color:rgba(26,26,22,0.65); font-weight:300; max-width:480px; }
+  .lh-right { border:1px solid rgba(26,26,22,0.18); overflow:hidden; }
+  .lr-top { padding:22px; }
+  .lr-top-title { font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:var(--green); margin-bottom:6px; }
+  .lr-top-body { font-family:'IBM Plex Sans',sans-serif; font-size:11.5px; color:rgba(26,26,22,0.55); line-height:1.6; font-weight:300; }
+  .lr-stats { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(26,26,22,0.12); }
+  .lr-stat { padding:14px 16px; border-right:1px solid rgba(26,26,22,0.1); }
+  .lr-stat:last-child { border-right:none; }
+  .lr-n { font-family:'Playfair Display',serif; font-size:24px; font-weight:700; color:var(--green); line-height:1; }
+  .lr-l { font-size:9px; color:rgba(26,26,22,0.4); text-transform:uppercase; letter-spacing:0.12em; margin-top:2px; }
+
+  .filter-bar { display:flex; align-items:stretch; border-bottom:2px solid var(--ink); background:var(--cream-dark); overflow-x:auto; }
+  .filter-label { padding:13px 18px; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,22,0.4); border-right:1px solid rgba(26,26,22,0.12); display:flex; align-items:center; white-space:nowrap; }
+  .filter-btn { padding:13px 18px; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(26,26,22,0.5); background:none; border:none; border-right:1px solid rgba(26,26,22,0.08); cursor:pointer; font-family:'IBM Plex Mono',monospace; transition:background 0.12s,color 0.12s; white-space:nowrap; }
+  .filter-btn:hover,.filter-btn.active { background:var(--green); color:var(--cream); }
+
+  .featured-labs { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:2px solid var(--ink); }
+  .lab-card { padding:28px; border-right:1px solid rgba(26,26,22,0.2); transition:background 0.15s; position:relative; overflow:hidden; }
+  .lab-card:last-child { border-right:none; }
+  .lab-card:hover { background:rgba(26,58,42,0.04); }
+  .lab-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:var(--green); transform:scaleX(0); transform-origin:left; transition:transform 0.25s; }
+  .lab-card:hover::before { transform:scaleX(1); }
+  .lc-univ { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blue); margin-bottom:4px; }
+  .lc-name { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--green); margin-bottom:4px; line-height:1.15; }
+  .lc-dept { font-size:10px; color:rgba(26,26,22,0.45); margin-bottom:14px; line-height:1.35; }
+  .lc-finding { padding:12px; background:rgba(26,58,42,0.06); border-left:3px solid var(--green); margin-bottom:12px; }
+  .lc-finding-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:var(--green); margin-bottom:4px; opacity:0.7; }
+  .lc-finding-text { font-family:'IBM Plex Sans',sans-serif; font-size:11.5px; color:rgba(26,26,22,0.65); line-height:1.5; font-weight:300; }
+  .lc-focus-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,22,0.35); margin-bottom:6px; margin-top:10px; }
+  .lc-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+  .lc-tag { font-size:9px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 8px; border:1px solid rgba(26,26,22,0.15); color:rgba(26,26,22,0.5); }
+  .lc-tag.hl { background:rgba(26,58,42,0.08); border-color:var(--green); color:var(--green); }
+  .lc-status { display:inline-block; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 9px; }
+  .lc-status.featured { background:var(--rust); color:var(--cream); }
+  .lc-status.watch { border:1px solid var(--blue); color:var(--blue); }
+  .lc-status.upcoming { border:1px solid rgba(26,26,22,0.2); color:rgba(26,26,22,0.4); }
+
+  .labs-table { border-bottom:2px solid var(--ink); }
+  .lt-header { background:var(--cream-dark); border-bottom:1px solid rgba(26,26,22,0.2); font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,22,0.4); padding:10px 24px; display:grid; grid-template-columns:210px 170px 1fr 130px 110px; gap:0; }
+  .lt-row { display:grid; grid-template-columns:210px 170px 1fr 130px 110px; align-items:start; padding:16px 24px; border-bottom:1px solid rgba(26,26,22,0.07); transition:background 0.12s; }
+  .lt-row:hover { background:rgba(26,58,42,0.04); }
+  .lt-inst { font-family:'IBM Plex Sans',sans-serif; font-size:12px; font-weight:500; color:var(--ink); line-height:1.2; }
+  .lt-univ { font-size:10px; color:rgba(26,26,22,0.4); margin-top:2px; }
+  .lt-pi { font-size:11.5px; color:var(--ink); }
+  .lt-pi-title { font-size:10px; color:rgba(26,26,22,0.4); margin-top:2px; }
+  .lt-focus-list { display:flex; flex-wrap:wrap; gap:4px; }
+  .lt-ftag { font-size:9px; padding:2px 7px; border:1px solid rgba(26,26,22,0.12); color:rgba(26,26,22,0.5); }
+  .lt-stage { font-size:10px; color:rgba(26,26,22,0.5); }
+  .lt-badge { display:inline-block; font-size:8px; letter-spacing:0.08em; text-transform:uppercase; padding:3px 8px; }
+  .lt-badge.ep { background:var(--rust); color:var(--cream); }
+  .lt-badge.watch { border:1px solid var(--blue); color:var(--blue); }
+  .lt-badge.soon { border:1px solid rgba(26,26,22,0.15); color:rgba(26,26,22,0.4); }
+
+  .submit-strip { background:var(--cream-dark); border-bottom:2px solid var(--ink); padding:36px 48px; display:flex; align-items:center; justify-content:space-between; gap:40px; border-top:2px solid var(--ink); }
+  .ss-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--green); }
+  .ss-sub { font-family:'IBM Plex Sans',sans-serif; font-size:12px; color:rgba(26,26,22,0.5); margin-top:5px; font-weight:300; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <ul class="nav-links-left">
+    <li><a href="podcast.html" id="nav-podcast">Podcast</a></li>
+    <li><a href="letter.html" id="nav-letter">Newsletter</a></li>
+    <li><a href="labs.html" id="nav-labs">Labs</a></li>
+  </ul>
+  <div class="nav-logo">
+    <a class="wordmark" href="index-v1-backup.html">Uncooked</a>
+    <span class="sub">Climate Solutions</span>
+  </div>
+  <ul class="nav-links-right">
+    <li><a href="founders.html" id="nav-founders">Founders</a></li>
+    <li><a href="manifesto.html" id="nav-manifesto">Manifesto</a></li>
+    <li><a href="letter.html" style="color:var(--rust);border-bottom:2px solid var(--rust);">Subscribe</a></li>
+  </ul>
+</nav>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Ep. 01 Live: Water / MOF — Prof. Omar Yaghi × WaHa</span>
+    <span>Ep. 02 Coming: EVs / Voltpost — Scott Fisher × Voltpost</span>
+    <span>Rooted at Berkeley + Columbia</span>
+    <span>Newsletter Issue 001 — Wildfire + Adaptation</span>
+    <span>Ep. 01 Live: Water / MOF — Prof. Omar Yaghi × WaHa</span>
+    <span>Ep. 02 Coming: EVs / Voltpost — Scott Fisher × Voltpost</span>
+    <span>Rooted at Berkeley + Columbia</span>
+    <span>Newsletter Issue 001 — Wildfire + Adaptation</span>
+  </div>
+</div>
+
+<div class="labs-hero">
+  <div class="lh-left">
+    <div class="lh-kicker">Research Intelligence</div>
+    <h1 class="lh-title">The Labs<br><em>Directory</em></h1>
+    <p class="lh-desc">The densest concentration of climate research in the US, mapped and annotated. Who's working on what, what they've found, and where the path to a company might exist. Start here if you're a founder looking for science, or a VC looking for what's coming.</p>
+  </div>
+  <div class="lh-right">
+    <div class="lr-top">
+      <div class="lr-top-title">A super-connector for US climate research</div>
+      <p class="lr-top-body">We track labs at Berkeley, Columbia, Stanford, Yale, MIT and beyond — cataloging researchers, findings, and spinout potential. Updated with every episode and newsletter issue.</p>
+    </div>
+    <div class="lr-stats">
+      <div class="lr-stat"><div class="lr-n">14</div><div class="lr-l">Labs Tracked</div></div>
+      <div class="lr-stat"><div class="lr-n">6</div><div class="lr-l">Universities</div></div>
+      <div class="lr-stat"><div class="lr-n">9</div><div class="lr-l">Sectors</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <div class="filter-label">Filter by sector</div>
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">Water</button>
+  <button class="filter-btn">EVs + Mobility</button>
+  <button class="filter-btn">Wildfire</button>
+  <button class="filter-btn">Mining</button>
+  <button class="filter-btn">Data Centers</button>
+  <button class="filter-btn">Cryosphere</button>
+  <button class="filter-btn">Energy Storage</button>
+  <button class="filter-btn">Animal Ag</button>
+</div>
+
+<div class="section-header">
+  <span class="section-title">Featured Labs</span>
+  <span class="section-line"></span>
+  <span class="section-count">On or featured in Uncooked</span>
+</div>
+
+<div class="featured-labs">
+  <div class="lab-card">
+    <div class="lc-univ">UC Berkeley · College of Chemistry</div>
+    <div class="lc-name">Yaghi Laboratory</div>
+    <div class="lc-dept">Reticular Chemistry · Metal-Organic Frameworks · Atmospheric Water Harvesting</div>
+    <div class="lc-finding"><div class="lc-finding-label">Key Finding</div><div class="lc-finding-text">MOF-303 harvests drinking water from air at 7% humidity, powered by ambient sunlight. 285g water/kg MOF/day demonstrated in Death Valley.</div></div>
+    <div class="lc-focus-label">Focus Areas</div>
+    <div class="lc-tags"><span class="lc-tag hl">Water</span><span class="lc-tag">Materials Science</span><span class="lc-tag">Carbon Capture</span></div>
+    <span class="lc-status featured">Ep. 01 Featured</span>
+  </div>
+  <div class="lab-card">
+    <div class="lc-univ">Columbia University SPS</div>
+    <div class="lc-name">Sustainable Transportation Economy</div>
+    <div class="lc-dept">EV Infrastructure · Mobility Decarbonization · Charging Economics</div>
+    <div class="lc-finding"><div class="lc-finding-label">Key Finding</div><div class="lc-finding-text">~33% of US households lack home charging access. Curbside Level 2 at existing grid points (streetlights) is the lowest-cost path to closing the access gap.</div></div>
+    <div class="lc-focus-label">Focus Areas</div>
+    <div class="lc-tags"><span class="lc-tag hl">EVs</span><span class="lc-tag">Urban Infrastructure</span><span class="lc-tag">Grid</span></div>
+    <span class="lc-status featured">Ep. 02 Featured</span>
+  </div>
+  <div class="lab-card">
+    <div class="lc-univ">UC Berkeley · College of Natural Resources</div>
+    <div class="lc-name">Fire &amp; Landscape Ecology</div>
+    <div class="lc-dept">Fire Ecology · Prescribed Burn Policy · Post-Fire Adaptation</div>
+    <div class="lc-finding"><div class="lc-finding-label">Key Finding</div><div class="lc-finding-text">Prescribed burns at scale reduce wildfire suppression costs 7:1. The bottleneck is permitting capacity and community trust, not science.</div></div>
+    <div class="lc-focus-label">Focus Areas</div>
+    <div class="lc-tags"><span class="lc-tag hl">Wildfire</span><span class="lc-tag">Adaptation</span><span class="lc-tag">Land Management</span></div>
+    <span class="lc-status watch">Episode Planned</span>
+  </div>
+</div>
+
+<div class="section-header">
+  <span class="section-title">All Labs on Radar</span>
+  <span class="section-line"></span>
+  <span class="section-count">14 labs · Updated Jan 2025</span>
+</div>
+
+<div class="labs-table">
+  <div class="lt-header"><div>Lab / Group</div><div>PI / Lead</div><div>Focus</div><div>Stage</div><div>Status</div></div>
+  <div class="lt-row"><div><div class="lt-inst">Yaghi Lab</div><div class="lt-univ">UC Berkeley</div></div><div><div class="lt-pi">Prof. Omar Yaghi</div><div class="lt-pi-title">Nobel Laureate · Reticular Chemistry</div></div><div><div class="lt-focus-list"><span class="lt-ftag">Water Harvesting</span><span class="lt-ftag">MOFs</span></div></div><div><div class="lt-stage">Active · Commercializing</div></div><div><span class="lt-badge ep">Ep. 01</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">Sustainable Transport</div><div class="lt-univ">Columbia SPS</div></div><div><div class="lt-pi">Prof. Scott Fisher</div><div class="lt-pi-title">EV Infrastructure</div></div><div><div class="lt-focus-list"><span class="lt-ftag">EV Charging</span><span class="lt-ftag">Grid</span></div></div><div><div class="lt-stage">Active · Industry-linked</div></div><div><span class="lt-badge ep">Ep. 02</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">Fire &amp; Landscape Ecology</div><div class="lt-univ">UC Berkeley CNR</div></div><div><div class="lt-pi">Prof. Scott Stephens area</div><div class="lt-pi-title">Fire Ecology · Policy</div></div><div><div class="lt-focus-list"><span class="lt-ftag">Wildfire</span><span class="lt-ftag">Prescribed Burn</span></div></div><div><div class="lt-stage">Active</div></div><div><span class="lt-badge watch">Ep. Planned</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">Lamont-Doherty Earth Obs.</div><div class="lt-univ">Columbia University</div></div><div><div class="lt-pi">Multiple PIs</div><div class="lt-pi-title">Cryosphere · Ocean Systems</div></div><div><div class="lt-focus-list"><span class="lt-ftag">Cryosphere</span><span class="lt-ftag">Sea Level</span></div></div><div><div class="lt-stage">Active</div></div><div><span class="lt-badge watch">On Radar</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">BESS / Energy Storage</div><div class="lt-univ">UC Berkeley EECS</div></div><div><div class="lt-pi">Prof. Joe Hao (target)</div><div class="lt-pi-title">Battery Systems · Grid Storage</div></div><div><div class="lt-focus-list"><span class="lt-ftag">BESS</span><span class="lt-ftag">Battery Chem</span></div></div><div><div class="lt-stage">Active</div></div><div><span class="lt-badge watch">Ep. Planned</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">Climate AI / Risk</div><div class="lt-univ">UC Berkeley Haas</div></div><div><div class="lt-pi">Prof. Pano Patatoukas</div><div class="lt-pi-title">Climate AI · Financial Risk</div></div><div><div class="lt-focus-list"><span class="lt-ftag">Climate Risk</span><span class="lt-ftag">AI</span></div></div><div><div class="lt-stage">Active</div></div><div><span class="lt-badge soon">Tracking</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">Clean Mining / Nomadic</div><div class="lt-univ">Columbia Adjacent</div></div><div><div class="lt-pi">Tem Turburat</div><div class="lt-pi-title">Critical Minerals · Clean Extraction</div></div><div><div class="lt-focus-list"><span class="lt-ftag">Mining</span><span class="lt-ftag">E-Waste</span></div></div><div><div class="lt-stage">Industry-linked</div></div><div><span class="lt-badge soon">Tracking</span></div></div>
+  <div class="lt-row"><div><div class="lt-inst">Cryosphere + Sea Level</div><div class="lt-univ">Columbia Climate School</div></div><div><div class="lt-pi">Niall Coffey (target)</div><div class="lt-pi-title">Cryosphere · Sea Level Rise</div></div><div><div class="lt-focus-list"><span class="lt-ftag">Cryosphere</span><span class="lt-ftag">Arctic</span></div></div><div><div class="lt-stage">Active</div></div><div><span class="lt-badge soon">Tracking</span></div></div>
+</div>
+
+<div class="submit-strip">
+  <div>
+    <div class="ss-title">Know a lab we should be tracking?</div>
+    <div class="ss-sub">Wildfire adaptation, water, EVs, critical minerals, data center efficiency, cryosphere, and animal ag.</div>
+  </div>
+  <a href="#" class="btn-primary">Submit a Lab →</a>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a class="wordmark" href="index-v1-backup.html">Uncooked</a>
+    <span class="tagline">Climate solutions. Still in the oven.</span>
+    <div style="margin-top:16px;font-size:10px;opacity:0.3;line-height:1.6;font-family:'IBM Plex Sans',sans-serif;">A podcast, newsletter &amp; network<br>for climate practitioners &amp; investors.<br>Rooted at Berkeley + Columbia.</div>
+  </div>
+  <div>
+    <div class="footer-col-title">Podcast</div>
+    <ul class="footer-links">
+      <li><a href="podcast.html">All Episodes</a></li>
+      <li><a href="#">Submit a Researcher</a></li>
+      <li><a href="#">Submit a Founder</a></li>
+      <li><a href="#">Transcripts</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Platform</div>
+    <ul class="footer-links">
+      <li><a href="letter.html">Newsletter</a></li>
+      <li><a href="labs.html">Labs Directory</a></li>
+      <li><a href="founders.html">Founders</a></li>
+      <li><a href="manifesto.html">Manifesto</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Listen On</div>
+    <ul class="footer-links">
+      <li><a href="#">Spotify</a></li>
+      <li><a href="#">Apple Podcasts</a></li>
+      <li><a href="#">YouTube</a></li>
+      <li><a href="#">RSS Feed</a></li>
+    </ul>
+  </div>
+  <div class="footer-legal">
+    <span class="footer-legal-text">© 2025 Uncooked Climate Solutions. All rights reserved.</span>
+    <span class="footer-legal-text">Built at Berkeley + Columbia. Not with VC money (yet).</span>
+  </div>
+</footer>
+</div>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+<script>document.getElementById("nav-labs").classList.add("active");</script>
+</body>
+</html>
