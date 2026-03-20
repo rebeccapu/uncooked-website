@@ -61,18 +61,20 @@
     border-bottom: 2px solid var(--ink);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    align-items: stretch;
     padding: 0 32px;
     background: var(--cream);
     position: sticky;
     top: 0;
     z-index: 100;
+    min-height: 72px;
   }
 
   .nav-links-left, .nav-links-right {
     display: flex;
     gap: 28px;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links-right { justify-content: flex-end; }
@@ -84,7 +86,7 @@
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 20px 0;
+    padding: 26px 0;
     display: block;
     border-bottom: 2px solid transparent;
     transition: border-color 0.15s, color 0.15s;
@@ -94,28 +96,33 @@
 
   .nav-logo {
     text-align: center;
-    padding: 14px 32px;
+    padding: 12px 40px;
     border-left: 1px solid var(--ink);
     border-right: 1px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-logo .wordmark {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 900;
     letter-spacing: -0.02em;
     color: var(--green);
     text-decoration: none;
     display: block;
-    line-height: 1.1;
+    line-height: 1.0;
   }
 
   .nav-logo .sub {
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 8px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--blue);
     font-family: 'IBM Plex Mono', monospace;
+    margin-top: 3px;
   }
 
   /* ─── TICKER ─── */
@@ -859,18 +866,18 @@
   }
 
   .about-right {
-    padding: 48px;
+    padding: 40px 48px;
     background: rgba(26,58,42,0.04);
   }
 
   .hosts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
   .host-card {
-    padding: 20px;
+    padding: 18px;
     border: 1px solid rgba(26,26,22,0.15);
     background: var(--paper);
     transition: border-color 0.15s;
@@ -879,15 +886,15 @@
   .host-card:hover { border-color: var(--green); }
 
   .host-avatar {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: var(--green);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--cream);
     font-style: italic;
@@ -898,7 +905,15 @@
     font-size: 13px;
     font-weight: 500;
     color: var(--ink);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
+  }
+
+  .host-role {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 3px;
   }
 
   .host-title {
@@ -906,6 +921,21 @@
     color: rgba(26,26,22,0.5);
     line-height: 1.4;
   }
+
+  .host-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .host-link:hover { color: var(--rust); border-color: var(--rust); }
 
   /* ─── FOOTER ─── */
   footer {
@@ -1144,8 +1174,7 @@
     <span class="sub">Climate Solutions</span>
   </div>
   <ul class="nav-links-right">
-    <li><a href="founders.html">Founders</a></li>
-    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="letter.html" style="color: var(--rust); border-bottom: 2px solid var(--rust);">Subscribe</a></li>
   </ul>
 </nav>
@@ -1153,14 +1182,14 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span>New Episode: Wildfire / Burnbot</span>
-    <span>Ep. 01 out now — Prescribed Burn Robotics × Wildfire Ecology</span>
-    <span>Sourcing Letter No. 003 — Grad School Spinouts Worth Watching</span>
-    <span>Lab Watch: Stanford Earth, MIT Climate, UC Berkeley BERC</span>
-    <span>New Episode: Wildfire / Burnbot</span>
-    <span>Ep. 01 out now — Prescribed Burn Robotics × Wildfire Ecology</span>
-    <span>Sourcing Letter No. 003 — Grad School Spinouts Worth Watching</span>
-    <span>Lab Watch: Stanford Earth, MIT Climate, UC Berkeley BERC</span>
+    <span>Ep. 01 Live: Water / MOF — Prof. Omar Yaghi × WaHa</span>
+    <span>Ep. 02 Coming: EVs / Voltpost — Scott Fisher × Voltpost</span>
+    <span>Sourcing Letter Issue 001 — University Climate Tech Ecosystems</span>
+    <span>Rooted at Berkeley + Columbia · Expanding to Stanford + Yale</span>
+    <span>Ep. 01 Live: Water / MOF — Prof. Omar Yaghi × WaHa</span>
+    <span>Ep. 02 Coming: EVs / Voltpost — Scott Fisher × Voltpost</span>
+    <span>Sourcing Letter Issue 001 — University Climate Tech Ecosystems</span>
+    <span>Rooted at Berkeley + Columbia · Expanding to Stanford + Yale</span>
   </div>
 </div>
 
@@ -1168,9 +1197,9 @@
 <section class="hero">
   <div class="hero-main">
     <div>
-      <p class="hero-kicker">A podcast &amp; sourcing letter // Climate Research → Real World</p>
+      <p class="hero-kicker">A Podcast &amp; Sourcing Letter</p>
       <h1 class="hero-headline">Climate solutions.<br><em>Still in the oven.</em></h1>
-      <p class="hero-sub">We explore the wildest research coming out of world-leading labs and the founders bold enough to try to scale it in the real world. From professors uncovering how our planet actually works to startups wrestling with the hardest implementation challenges.</p>
+      <p class="hero-sub">We explore the wildest research coming out of world-leading labs and the founders bold enough to try to scale it in the real world. From professors tackling the toughest climate questions to student builders wrestling with the hardest implementation challenges, we tell the unfiltered stories of ideas still in the oven.</p>
       <div class="hero-actions">
         <a href="podcast.html" class="btn-primary">Latest Episode →</a>
         <a href="letter.html" class="btn-ghost">Read the Newsletter</a>
@@ -1182,20 +1211,22 @@
     </div>
   </div>
   <div class="hero-sidebar">
-    <div class="sidebar-label">Latest Episode</div>
+    <div class="sidebar-label">Latest Episodes</div>
+
     <div class="latest-ep">
-      <div class="ep-num">Episode 01</div>
-      <div class="ep-title">Wildfire / Burnbot</div>
+      <div class="ep-num">Episode 01 · Latest</div>
+      <div class="ep-title">Water / MOF</div>
       <div class="ep-guests">
-        Prof. Crystal Kolden, UC Merced — Wildfire Ecology<br>
-        + Jake Duncan, CEO — Burnbot Inc.
+        Prof. Omar Yaghi, UC Berkeley — Reticular Chemistry<br>
+        + WaHa / Novnat — Atmospheric Water Harvesting
       </div>
       <div class="ep-tags">
-        <span class="tag">Wildfire</span>
-        <span class="tag">Robotics</span>
+        <span class="tag">Water</span>
+        <span class="tag">Materials Science</span>
         <span class="tag rust">New</span>
       </div>
     </div>
+
     <div class="mini-player">
       <div class="waveform">
         <div class="wave-bar"></div>
@@ -1208,7 +1239,7 @@
       </div>
       <div>
         <div class="player-text">Now Playing</div>
-        <div class="player-subtext">52 min · Prescribed burn automation</div>
+        <div class="player-subtext">~25 min · MOF water harvesting</div>
       </div>
     </div>
     <a class="play-btn" href="podcast.html">
@@ -1218,9 +1249,11 @@
         <div class="play-meta">Spotify · Apple · RSS</div>
       </div>
     </a>
-    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(242,234,216,0.15);">
-      <div class="ep-num" style="margin-bottom: 8px;">Coming Up</div>
-      <div style="font-family:'Playfair Display',serif; font-size:14px; color:var(--cream); opacity:0.75; line-height:1.3;">Permafrost / Carbon<br><span style="font-style:italic; font-size:12px; opacity:0.6;">Arctic methane release + startup racing to freeze it</span></div>
+
+    <div style="padding-top: 20px; border-top: 1px solid rgba(242,234,216,0.15); margin-top: 20px;">
+      <div class="ep-num" style="margin-bottom: 8px;">Episode 02 · Coming Soon</div>
+      <div style="font-family:'Playfair Display',serif; font-size:14px; color:var(--cream); opacity:0.85; line-height:1.3; margin-bottom: 6px;">EVs / Voltpost</div>
+      <div style="font-size:10px; opacity:0.55; line-height:1.45;">Prof. Scott Fisher, Columbia<br>× Voltpost — streetlight EV charging</div>
     </div>
   </div>
 </section>
@@ -1249,77 +1282,72 @@
 <div class="section-header">
   <span class="section-title">Recent Episodes</span>
   <span class="section-line"></span>
-  <span class="section-count">View all →</span>
+  <a href="podcast.html" class="section-count" style="text-decoration:none; color:rgba(26,26,22,0.4); transition:color 0.15s;" onmouseover="this.style.color='var(--rust)'" onmouseout="this.style.color='rgba(26,26,22,0.4)'">View all →</a>
 </div>
 
 <div class="episodes-grid">
 
   <div class="ep-card">
-    <div class="ep-num">Episode 01 · Nov 2024</div>
-    <div class="ep-title">Wildfire / <em>Burnbot</em></div>
+    <div class="ep-num">Episode 01 · 2025</div>
+    <div class="ep-title">Water / <em>MOF</em></div>
     <div class="ep-pairing">
       <div class="ep-pairing-side">
         <div class="ep-pairing-label">The Lab</div>
-        <div class="ep-pairing-name">Prof. Crystal Kolden</div>
-        <div class="ep-pairing-detail">UC Merced · Wildfire Ecology & Fire Behavior</div>
+        <div class="ep-pairing-name">Prof. Omar Yaghi</div>
+        <div class="ep-pairing-detail">UC Berkeley · Reticular Chemistry · Nobel Laureate</div>
       </div>
       <div class="ep-divider">×</div>
       <div class="ep-pairing-side">
         <div class="ep-pairing-label">The Founder</div>
-        <div class="ep-pairing-name">Jake Duncan</div>
-        <div class="ep-pairing-detail">CEO, Burnbot · Prescribed burn automation</div>
+        <div class="ep-pairing-name">WaHa / Novnat</div>
+        <div class="ep-pairing-detail">Berkeley Spinout · MOF atmospheric water harvesting</div>
       </div>
     </div>
-    <p class="ep-desc">Prescribed burns are the most effective tool for wildfire prevention — and we barely use them. A fire ecologist and the founder building robots to change that go head-to-head on what the science actually says we should be doing.</p>
+    <p class="ep-desc">Two-thirds of the global population will face water stress by 2050. Prof. Yaghi's metal-organic frameworks can pull drinking water from desert air at 7% humidity using only sunlight. The question is whether it can scale to the billions who need it.</p>
     <div class="ep-footer">
-      <span class="ep-duration">52 min</span>
+      <span class="ep-duration">~25 min</span>
       <a class="ep-play" href="podcast.html">Listen →</a>
     </div>
   </div>
 
   <div class="ep-card">
-    <div class="ep-num">Episode 02 · Dec 2024</div>
-    <div class="ep-title">Concrete / <em>Brimstone</em></div>
+    <div class="ep-num">Episode 02 · Coming Soon</div>
+    <div class="ep-title">EVs / <em>Voltpost</em></div>
     <div class="ep-pairing">
       <div class="ep-pairing-side">
         <div class="ep-pairing-label">The Lab</div>
-        <div class="ep-pairing-name">Prof. Paulo Monteiro</div>
-        <div class="ep-pairing-detail">UC Berkeley · Sustainable Cement Chemistry</div>
+        <div class="ep-pairing-name">Prof. Scott Fisher</div>
+        <div class="ep-pairing-detail">Columbia SPS · Sustainable Transportation Economy</div>
       </div>
       <div class="ep-divider">×</div>
       <div class="ep-pairing-side">
         <div class="ep-pairing-label">The Founder</div>
-        <div class="ep-pairing-name">Cody Finke</div>
-        <div class="ep-pairing-detail">CEO, Brimstone · Zero-carbon Portland cement</div>
+        <div class="ep-pairing-name">Jeffrey Prosserman</div>
+        <div class="ep-pairing-detail">CEO, Voltpost · Streetlight EV charging</div>
       </div>
     </div>
-    <p class="ep-desc">Concrete is responsible for ~8% of global emissions and there's no easy substitute. A cement chemist and a startup attacking the process chemistry of clinker production dissect what decarbonizing the most-used material on earth actually requires.</p>
+    <p class="ep-desc">A third of American households have no access to home EV charging. Voltpost retrofits existing streetlights into Level 2 chargers. Scott Fisher has spent 15 years building the EV charging industry and teaching it at Columbia. They debate what the grid can actually absorb.</p>
     <div class="ep-footer">
-      <span class="ep-duration">61 min</span>
-      <a class="ep-play" href="podcast.html">Listen →</a>
+      <span class="ep-duration">~25 min</span>
+      <a class="ep-play" href="podcast.html">Coming Soon →</a>
     </div>
   </div>
 
-  <div class="ep-card">
-    <div class="ep-num">Episode 03 · Jan 2025</div>
-    <div class="ep-title">Soil Carbon / <em>Loam Bio</em></div>
-    <div class="ep-pairing">
-      <div class="ep-pairing-side">
-        <div class="ep-pairing-label">The Lab</div>
-        <div class="ep-pairing-name">Prof. Whendee Silver</div>
-        <div class="ep-pairing-detail">UC Berkeley · Biogeochemistry & Soil Carbon</div>
-      </div>
-      <div class="ep-divider">×</div>
-      <div class="ep-pairing-side">
-        <div class="ep-pairing-label">The Founder</div>
-        <div class="ep-pairing-name">Marcus Parker</div>
-        <div class="ep-pairing-detail">CEO, Loam Bio · Mycorrhizal carbon storage</div>
+  <div class="ep-card" style="background: rgba(26,26,22,0.02); border-style: dashed;">
+    <div class="ep-num" style="color: rgba(26,26,22,0.25);">Episode 03 · In the Works</div>
+    <div class="ep-title" style="color: rgba(26,58,42,0.35);">More Coming</div>
+    <div style="margin: 20px 0; padding: 20px; background: rgba(26,58,42,0.04); border-left: 3px solid rgba(26,58,42,0.15);">
+      <div style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(26,26,22,0.3); margin-bottom:10px;">Topics on deck</div>
+      <div style="font-family:'IBM Plex Sans',sans-serif; font-size:12px; color:rgba(26,26,22,0.4); line-height:1.8; font-weight:300;">
+        Wildfire · Mining &amp; Critical Minerals<br>
+        Data Centers · Cryosphere<br>
+        Energy Storage · Animal Ag
       </div>
     </div>
-    <p class="ep-desc">Microbial life in soil stores more carbon than all vegetation on earth. A biogeochemist who has spent decades measuring it and a founder trying to scale a fungal inoculant product debate permanence, additionality, and what farmers actually need.</p>
+    <p class="ep-desc" style="color:rgba(26,26,22,0.4);">Know a researcher or founder working on one of these? We want to hear from you.</p>
     <div class="ep-footer">
-      <span class="ep-duration">58 min</span>
-      <a class="ep-play" href="podcast.html">Listen →</a>
+      <span class="ep-duration"></span>
+      <a class="ep-play" href="#">Submit a Guest →</a>
     </div>
   </div>
 
@@ -1329,75 +1357,71 @@
 <div class="section-header">
   <span class="section-title">The Sourcing Letter</span>
   <span class="section-line"></span>
-  <span class="section-count">VC-grade spinout intelligence</span>
+  <a href="letter.html" class="section-count" style="text-decoration:none; color:rgba(26,26,22,0.4); transition:color 0.15s;" onmouseover="this.style.color='var(--rust)'" onmouseout="this.style.color='rgba(26,26,22,0.4)'">View all →</a>
 </div>
 
 <div class="letter-section">
   <div class="letter-main">
     <div class="letter-eyebrow">
-      <span class="letter-badge">Issue No. 003</span>
-      <span class="letter-issue">January 2025 · Grad School Climate Spinouts</span>
+      <span class="letter-badge">Issue 001 · SF Climate Week</span>
+      <span class="letter-issue">April 2026 · Live Taping Edition</span>
     </div>
-    <h2 class="letter-headline">The Dirty Dozen:<br>Spinouts Nobody's Pitched You Yet</h2>
-    <p class="letter-lede">This month we dug through the IP filings, dissertation abstracts, and ARPA-E awardee lists so you don't have to. Twelve grad school spinouts across industrial decarbonization, wildfire adaptation, and ocean systems — most haven't raised a seed round.</p>
+    <h2 class="letter-headline">Water Is the Crisis<br>Nobody Is Funding</h2>
+    <p class="letter-lede">Our inaugural issue is built around SF Climate Week and our first live podcast taping — Water / MOF at the Yaghi Lab. This issue maps the water-climate research landscape, the founders trying to scale it, and the gap between what the science says we can do and what the market is actually funding.</p>
     <div class="letter-toc">
       <div class="toc-item">
-        <span class="toc-num">01</span>
         <div>
           <div class="toc-text">Lab Watch</div>
-          <div class="toc-sub">3 papers to know about this month</div>
+          <div class="toc-sub">Water-climate research worth tracking now</div>
         </div>
       </div>
       <div class="toc-item">
-        <span class="toc-num">02</span>
         <div>
           <div class="toc-text">The Pairing</div>
-          <div class="toc-sub">Wildfire / Burnbot deep-dive</div>
+          <div class="toc-sub">Water / MOF — live taping companion</div>
         </div>
       </div>
       <div class="toc-item">
-        <span class="toc-num">03</span>
         <div>
-          <div class="toc-text">Deal Anatomy</div>
-          <div class="toc-sub">Why spinout IP structures are broken</div>
+          <div class="toc-text">The Ecosystem</div>
+          <div class="toc-sub">The water-climate startup landscape at Berkeley</div>
         </div>
       </div>
       <div class="toc-item">
-        <span class="toc-num">04</span>
         <div>
           <div class="toc-text">Signal vs. Noise</div>
-          <div class="toc-sub">What's overhyped in climate this month</div>
+          <div class="toc-sub">Water tech: what's real vs. what's marketing</div>
         </div>
       </div>
     </div>
     <div class="letter-cta">
       <a href="letter.html" class="btn-primary">Read Issue 001 →</a>
       <a href="letter.html" class="btn-ghost">Browse Archive</a>
-      <span class="letter-date">Published Jan 14, 2025</span>
+      <span class="letter-date">April 2026 · SF Climate Week</span>
     </div>
   </div>
 
   <div class="letter-sidebar">
     <div class="subscribe-box">
       <div class="subscribe-title">Get the Letter</div>
-      <p class="subscribe-sub">Sourcing intelligence for climate investors. Bi-weekly. No fluff. Grad school spinouts before they hit your inbox from a banker.</p>
+      <p class="subscribe-sub">We track university climate tech ecosystems so you don't have to. Quarterly deep-dives on the founders, labs, and whitespace between Berkeley, Columbia, Stanford, and Yale.</p>
       <div class="subscribe-form">
         <input type="email" placeholder="your@fund.com">
         <input type="text" placeholder="Fund / Firm (optional)">
         <button type="button">Subscribe Free →</button>
       </div>
-      <p class="subscribe-note">Bi-weekly · No spam · Unsubscribe anytime</p>
+      <p class="subscribe-note">Quarterly · No spam · Unsubscribe anytime</p>
     </div>
-    <div class="past-issues-title">Past Issues</div>
+    <div class="past-issues-title">Issues</div>
     <div class="issue-item">
-      <div class="issue-num">Issue 002</div>
-      <div class="issue-title">Permafrost, Pyrolysis &amp; What ARPA-E Funded That Nobody Noticed</div>
-      <div class="issue-date">Dec 2024</div>
+      <div class="issue-num">Issue 001 · Live</div>
+      <div class="issue-title">Water Is the Crisis Nobody Is Funding — SF Climate Week Edition</div>
+      <div class="issue-date">Apr 2026</div>
     </div>
     <div class="issue-item">
-      <div class="issue-num">Issue 001</div>
-      <div class="issue-title">The Founding Issue: Why Hard Science Spinouts Fail Before Seed</div>
-      <div class="issue-date">Nov 2024</div>
+      <div class="issue-num">Issue 002 · Coming</div>
+      <div class="issue-title">EVs &amp; Urban Infrastructure: The Charging Gap</div>
+      <div class="issue-date">Jul 2026</div>
     </div>
   </div>
 </div>
@@ -1446,24 +1470,47 @@
     <h2 class="about-headline">We focus on the dirtiest, hardest-to-abate problems.</h2>
     <p class="about-body">Uncooked lives at the messy intersection of research and practice. We focus on the dirtiest, hardest-to-abate industries and the gritty, unglamorous work of climate adaptation — before solutions are polished, proven, or mainstream.</p>
     <p class="about-body" style="margin-top: 14px;">Each episode pairs a researcher with a founder working in the same problem space. The tension is the point. What the science says and what the market can bear are rarely the same thing.</p>
-    <a href="manifesto.html" class="btn-ghost" style="margin-top: 28px; display: inline-block;">Read Our Manifesto →</a>
+    <a href="about.html" class="btn-ghost" style="margin-top: 28px; display: inline-block;">About Us →</a>
   </div>
   <div class="about-right">
-    <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(26,26,22,0.45); margin-bottom: 20px;">Hosted by</div>
+    <div style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(26,26,22,0.45); margin-bottom: 16px;">The Team</div>
     <div class="hosts-grid">
+
+      <div class="host-card">
+        <div class="host-avatar">B</div>
+        <div class="host-name">Becca Pu</div>
+        <div class="host-role">Co-Founder · Co-Host</div>
+        <div class="host-title">Climate Risk &amp; Research<br>Berkeley Haas MBA · S&amp;P Global Climate</div>
+        <a href="https://www.linkedin.com/in/rebecca-pu/" target="_blank" class="host-link">LinkedIn →</a>
+      </div>
+
       <div class="host-card">
         <div class="host-avatar">A</div>
-        <div class="host-name">Alex Chen</div>
-        <div class="host-title">Climate Risk + Research<br>Former: Rocky Mountain Institute</div>
+        <div class="host-name">Anthony Rosato</div>
+        <div class="host-role">Co-Founder · Co-Host</div>
+        <div class="host-title">Sustainability Management<br>Columbia Climate School · PE</div>
+        <a href="https://www.linkedin.com/in/anthony-rosato/" target="_blank" class="host-link">LinkedIn →</a>
       </div>
+
       <div class="host-card">
-        <div class="host-avatar">M</div>
-        <div class="host-name">Maya Okafor</div>
-        <div class="host-title">Design + Entrepreneurship<br>Climate Tech Founder</div>
+        <div class="host-avatar">G</div>
+        <div class="host-name">Gaby Cornejo</div>
+        <div class="host-role">Co-Founder</div>
+        <div class="host-title">Climate Practice<br>Network &amp; Community</div>
+        <a href="https://www.linkedin.com/in/gabycornejo/" target="_blank" class="host-link">LinkedIn →</a>
       </div>
+
+      <div class="host-card">
+        <div class="host-avatar">G</div>
+        <div class="host-name">Grant Chou</div>
+        <div class="host-role">Co-Founder</div>
+        <div class="host-title">Finance &amp; Climate Tech<br>Strategy &amp; Investor Relations</div>
+        <a href="https://www.linkedin.com/in/grant-chou-12b72b89/" target="_blank" class="host-link">LinkedIn →</a>
+      </div>
+
     </div>
-    <div style="margin-top: 24px; padding: 18px; border: 1px solid rgba(26,26,22,0.12); background: var(--paper);">
-      <div style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(26,26,22,0.4); margin-bottom: 8px;">Listen on</div>
+    <div style="margin-top: 16px; padding: 14px 18px; border: 1px solid rgba(26,26,22,0.12); background: var(--paper); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(26,26,22,0.4);">Listen on</div>
       <div style="display: flex; gap: 8px; flex-wrap: wrap;">
         <a href="#" class="platform-pill" style="background: transparent; border: 1px solid rgba(26,26,22,0.2); color: var(--ink); padding: 5px 12px; font-size: 10px; letter-spacing: 0.05em; text-decoration: none; transition: all 0.15s; font-family: 'IBM Plex Mono', monospace;">Spotify</a>
         <a href="#" class="platform-pill" style="background: transparent; border: 1px solid rgba(26,26,22,0.2); color: var(--ink); padding: 5px 12px; font-size: 10px; letter-spacing: 0.05em; text-decoration: none; transition: all 0.15s; font-family: 'IBM Plex Mono', monospace;">Apple</a>
