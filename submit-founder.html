@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Founder — Uncooked Climate Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#1a3a2a;--green-mid:#2d5a3d;--green-light:#4a7c5a;
+    --cream:#f2ead8;--cream-dark:#e8dcc4;
+    --blue:#2a3f5a;--blue-light:#4a6a8a;
+    --rust:#8b3a2a;--ink:#1a1a16;
+    --paper:#f7f2e4;--grid:rgba(42,63,90,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6;cursor:crosshair;}
+  body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,var(--grid) 27px,var(--grid) 28px),repeating-linear-gradient(90deg,transparent,transparent 27px,rgba(42,63,90,0.03) 27px,rgba(42,63,90,0.03) 28px);pointer-events:none;z-index:0;}
+  body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+  .wrap{position:relative;z-index:1;}
+
+  nav{border-bottom:2px solid var(--ink);display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;padding:0 32px;background:var(--cream);position:sticky;top:0;z-index:100;min-height:72px;}
+  .nav-links-left,.nav-links-right{display:flex;gap:28px;list-style:none;align-items:center;}
+  .nav-links-right{justify-content:flex-end;}
+  nav a{text-decoration:none;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:26px 0;display:block;border-bottom:2px solid transparent;transition:border-color 0.15s,color 0.15s;}
+  nav a:hover{border-bottom-color:var(--rust);color:var(--rust);}
+  .nav-logo{text-align:center;padding:12px 40px;border-left:1px solid var(--ink);border-right:1px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .nav-logo .wordmark{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;letter-spacing:-0.02em;color:var(--green);text-decoration:none;display:block;line-height:1.0;}
+  .nav-logo .sub{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);font-family:'IBM Plex Mono',monospace;margin-top:3px;}
+
+  .page-hero{background:var(--ink);color:var(--cream);padding:60px 52px 52px;border-bottom:2px solid var(--ink);display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:end;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(242,234,216,0.02) 60px,rgba(242,234,216,0.02) 61px);pointer-events:none;}
+  .ph-left{position:relative;z-index:1;}
+  .ph-kicker{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(242,234,216,0.45);margin-bottom:14px;font-family:'IBM Plex Mono',monospace;}
+  .ph-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,64px);font-weight:900;line-height:0.92;letter-spacing:-0.03em;color:var(--cream);margin-bottom:16px;}
+  .ph-title em{font-style:italic;color:rgba(242,234,216,0.45);}
+  .ph-desc{font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(242,234,216,0.6);line-height:1.75;font-weight:300;max-width:480px;}
+  .ph-right{position:relative;z-index:1;border:1px solid rgba(242,234,216,0.12);padding:24px;}
+  .ph-right-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,234,216,0.35);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(242,234,216,0.1);}
+  .ph-right p{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:rgba(242,234,216,0.5);line-height:1.7;font-weight:300;margin-bottom:10px;}
+  .ph-right p:last-child{margin-bottom:0;}
+
+  .form-wrap{display:grid;grid-template-columns:1fr 320px;border-bottom:2px solid var(--ink);}
+  .form-main{padding:48px;border-right:2px solid var(--ink);}
+  .form-sidebar{padding:32px;background:var(--cream-dark);}
+
+  .field-group{margin-bottom:28px;}
+  .field-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:8px;display:block;font-weight:500;}
+  .field-hint{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:rgba(26,26,22,0.45);margin-bottom:8px;line-height:1.5;font-weight:300;}
+  .field-required{color:var(--rust);margin-left:3px;}
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  select,
+  textarea{
+    width:100%;background:var(--cream);border:1px solid rgba(26,26,22,0.25);
+    padding:11px 14px;font-family:'IBM Plex Mono',monospace;font-size:12px;
+    color:var(--ink);outline:none;transition:border-color 0.15s;
+    appearance:none;-webkit-appearance:none;
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--green);}
+  input::placeholder,textarea::placeholder{color:rgba(26,26,22,0.3);}
+  textarea{resize:vertical;min-height:100px;line-height:1.6;}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1a16' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+  .checkbox-group{display:flex;flex-direction:column;gap:8px;}
+  .checkbox-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
+  .checkbox-item input[type="checkbox"]{width:16px;height:16px;margin-top:2px;accent-color:var(--green);cursor:pointer;flex-shrink:0;}
+  .checkbox-item span{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:rgba(26,26,22,0.7);font-weight:300;line-height:1.5;}
+
+  .form-divider{height:1px;background:rgba(26,26,22,0.12);margin:32px 0;}
+
+  .submit-row{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(26,26,22,0.12);}
+  .btn-submit{background:var(--green);color:var(--cream);padding:13px 28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;border:2px solid var(--green);cursor:pointer;transition:all 0.15s;}
+  .btn-submit:hover{background:var(--rust);border-color:var(--rust);}
+  .submit-note{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:rgba(26,26,22,0.4);font-weight:300;line-height:1.5;}
+
+  .sidebar-block{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(26,26,22,0.12);}
+  .sidebar-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .sidebar-label{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(26,26,22,0.4);margin-bottom:10px;}
+  .sidebar-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--green);margin-bottom:6px;line-height:1.2;}
+  .sidebar-body{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:rgba(26,26,22,0.6);line-height:1.6;font-weight:300;}
+  .sidebar-link{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:1px;transition:color 0.15s;}
+  .sidebar-link:hover{color:var(--rust);border-color:var(--rust);}
+
+  footer{background:var(--ink);color:rgba(242,234,216,0.7);padding:40px 48px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:40px;align-items:start;}
+  .footer-brand .wordmark{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--cream);display:block;margin-bottom:6px;letter-spacing:-0.02em;text-decoration:none;}
+  .footer-brand .tagline{font-size:10px;letter-spacing:0.1em;opacity:0.5;font-style:italic;font-family:'Playfair Display',serif;}
+  .footer-col-title{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(242,234,216,0.4);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(242,234,216,0.1);}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .footer-links a{color:rgba(242,234,216,0.6);text-decoration:none;font-size:12px;transition:color 0.15s;font-family:'IBM Plex Sans',sans-serif;font-weight:300;}
+  .footer-links a:hover{color:var(--cream);}
+  .footer-legal{grid-column:1/-1;padding-top:24px;border-top:1px solid rgba(242,234,216,0.1);display:flex;justify-content:space-between;}
+  .footer-legal-text{font-size:10px;opacity:0.35;letter-spacing:0.05em;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  .ph-kicker{animation:fadeUp 0.5s ease both;}
+  .ph-title{animation:fadeUp 0.6s 0.1s ease both;}
+  .ph-desc{animation:fadeUp 0.6s 0.2s ease both;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <ul class="nav-links-left">
+    <li><a href="podcast.html">Podcast</a></li>
+    <li><a href="letter.html">Newsletter</a></li>
+    <li><a href="labs.html">Labs</a></li>
+  </ul>
+  <div class="nav-logo">
+    <a class="wordmark" href="index.html">Uncooked</a>
+    <span class="sub">Climate Solutions</span>
+  </div>
+  <ul class="nav-links-right">
+    <li><a href="about.html">About</a></li>
+    <li><a href="letter.html" style="color:var(--rust);border-bottom:2px solid var(--rust);">Subscribe</a></li>
+  </ul>
+</nav>
+
+<!-- HERO — dark background to distinguish from researcher form -->
+<div class="page-hero">
+  <div class="ph-left">
+    <div class="ph-kicker">Get Featured on the Podcast</div>
+    <h1 class="ph-title">Submit a<br><em>Founder</em></h1>
+    <p class="ph-desc">Building something hard in climate? We pair founders with world-leading researchers working on the same problem. Tell us about the company and the challenge — we'll find the right researcher to pair you with.</p>
+  </div>
+  <div class="ph-right">
+    <div class="ph-right-label">What we're looking for</div>
+    <p>Climate founders tackling genuinely hard implementation problems — water, wildfire, EVs, mining, data centers, cryosphere, energy storage, animal ag.</p>
+    <p>The best fits are early-stage companies where the science still matters and the implementation challenges are real and unresolved. Student founders welcome.</p>
+    <p>We read every submission. If it's a fit, we'll reach out within two weeks.</p>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap">
+  <div class="form-main">
+
+    <div class="field-group">
+      <label class="field-label">Your Name <span class="field-required">*</span></label>
+      <input type="text" placeholder="First and last name">
+    </div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label">Your Email <span class="field-required">*</span></label>
+        <input type="email" placeholder="you@company.com">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Your Role at the Company <span class="field-required">*</span></label>
+        <select>
+          <option value="" disabled selected>Select one</option>
+          <option>Founder / Co-founder</option>
+          <option>CEO</option>
+          <option>CTO</option>
+          <option>Other C-suite</option>
+          <option>I'm referring someone else's company</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="field-group">
+      <label class="field-label">Company Name <span class="field-required">*</span></label>
+      <input type="text" placeholder="Your startup's name">
+    </div>
+
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label">Company Website</label>
+        <input type="url" placeholder="https://...">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Stage</label>
+        <select>
+          <option value="" disabled selected>Select one</option>
+          <option>Idea / Pre-product</option>
+          <option>Pre-seed</option>
+          <option>Seed</option>
+          <option>Series A</option>
+          <option>Series B+</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">University / Research Origin</label>
+      <div class="field-hint">Did this company spin out of a university lab? If so, which one? Leave blank if not applicable.</div>
+      <input type="text" placeholder="e.g. Spun out of Yaghi Lab, UC Berkeley">
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="field-group">
+      <label class="field-label">What sector does the company operate in? <span class="field-required">*</span></label>
+      <div class="field-hint">Check all that apply.</div>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox"><span>Water Technology</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Wildfire &amp; Climate Adaptation</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>EVs &amp; Charging Infrastructure</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Mining &amp; Critical Minerals</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Data Centers &amp; Semiconductors</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Cryosphere &amp; Sea Level</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Energy Storage &amp; BESS</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Animal Agriculture</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Nuclear &amp; Geothermal</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Other</span></label>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="field-group">
+      <label class="field-label">What problem are you solving? <span class="field-required">*</span></label>
+      <div class="field-hint">In plain English — what's the hard problem, what's your approach, and what's the implementation challenge you're still wrestling with? Two to four sentences is perfect.</div>
+      <textarea rows="4" placeholder="e.g. We're commercializing MOF-based atmospheric water harvesting from the Yaghi Lab at UC Berkeley. The technology works at the lab scale. The challenge is driving manufacturing cost down low enough to compete with conventional water infrastructure in the markets that need it most..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">What kind of researcher would you want to be paired with?</label>
+      <div class="field-hint">Is there a specific lab, paper, or academic field whose work is directly relevant to what you're building? Not required, but helpful.</div>
+      <textarea rows="3" placeholder="Optional — e.g. someone working on MOF synthesis and scale-up, or a water policy researcher who understands the regulatory landscape in MENA..."></textarea>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Anything else we should know?</label>
+      <textarea rows="2" placeholder="Optional — upcoming milestones, partnerships, constraints, or context that might be relevant..."></textarea>
+    </div>
+
+    <div class="submit-row">
+      <button class="btn-submit" type="button">Submit →</button>
+      <p class="submit-note">We read every submission and respond to strong fits within two weeks. We don't share your information with anyone.</p>
+    </div>
+
+  </div>
+
+  <div class="form-sidebar">
+    <div class="sidebar-block">
+      <div class="sidebar-label">What happens next</div>
+      <div class="sidebar-title">We find your match</div>
+      <p class="sidebar-body">If it's a fit, we'll reach out to set up a call — then find the right researcher to pair you with. We handle all the logistics, scheduling, and editing. You just show up and talk honestly about what you're building.</p>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">The Format</div>
+      <div class="sidebar-title">20–25 minutes, unfiltered</div>
+      <p class="sidebar-body">The Pairing format puts you in conversation with a researcher working on the same problem. The conversation is exploratory — what broke first, what still might fail, what the science says vs. what the market will bear. We don't do PR-friendly interviews.</p>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Looking for a researcher instead?</div>
+      <div class="sidebar-title">Submit a Researcher</div>
+      <p class="sidebar-body">Know a professor or scientist whose work belongs on the show? There's a separate form for that.</p>
+      <a href="submit-researcher.html" class="sidebar-link">Submit a Researcher →</a>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Questions?</div>
+      <p class="sidebar-body" style="margin-top:0;">Reach out to the team directly via LinkedIn — links on the <a href="about.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);">About page</a>.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a class="wordmark" href="index.html">Uncooked</a>
+    <span class="tagline">Climate solutions. Still in the oven.</span>
+  </div>
+  <div>
+    <div class="footer-col-title">Podcast</div>
+    <ul class="footer-links">
+      <li><a href="podcast.html">All Episodes</a></li>
+      <li><a href="submit-researcher.html">Submit a Researcher</a></li>
+      <li><a href="submit-founder.html">Submit a Founder</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Platform</div>
+    <ul class="footer-links">
+      <li><a href="letter.html">Newsletter</a></li>
+      <li><a href="labs.html">Labs</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Listen On</div>
+    <ul class="footer-links">
+      <li><a href="#">Spotify</a></li>
+      <li><a href="#">Apple Podcasts</a></li>
+      <li><a href="#">YouTube</a></li>
+      <li><a href="#">RSS Feed</a></li>
+    </ul>
+  </div>
+  <div class="footer-legal">
+    <span class="footer-legal-text">© 2025 Uncooked Climate Solutions. All rights reserved.</span>
+    <span class="footer-legal-text">Built at Berkeley + Columbia. Not with VC money (yet).</span>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
