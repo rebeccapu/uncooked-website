@@ -140,6 +140,238 @@
   .ah-kicker{animation:fadeUp 0.5s ease both;}
   .ah-title{animation:fadeUp 0.6s 0.1s ease both;}
   .ah-desc{animation:fadeUp 0.6s 0.2s ease both;}
+
+/* ─── MOBILE RESPONSIVE ─── */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav {
+    grid-template-columns: 1fr auto !important;
+    padding: 0 16px !important;
+    min-height: 56px !important;
+  }
+  .nav-links-left, .nav-links-right { display: none !important; }
+  .nav-logo {
+    padding: 10px 16px !important;
+    border-left: none !important;
+    border-right: none !important;
+    justify-content: flex-start !important;
+  }
+  .nav-logo .wordmark { font-size: 20px !important; }
+  .nav-logo .sub { display: none; }
+
+  /* TICKER */
+  .ticker-inner span { padding: 0 20px !important; font-size: 9px !important; }
+
+  /* HERO — index */
+  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .hero-sidebar { display: none !important; }
+  .hero-main { padding: 32px 20px !important; }
+  .hero-headline { font-size: clamp(36px, 9vw, 52px) !important; }
+  .hero-sub { font-size: 14px !important; }
+
+  /* STATS BAR */
+  .big-stat { grid-template-columns: 1fr 1fr !important; padding: 20px !important; }
+  .stat-item { padding: 12px 16px !important; border-right: none !important; border-bottom: 1px solid rgba(26,26,22,0.1); }
+  .stat-item:last-child { border-bottom: none; }
+  .stat-num { font-size: 28px !important; }
+
+  /* EPISODES GRID */
+  .episodes-grid { grid-template-columns: 1fr !important; }
+  .ep-card { border-right: none !important; border-bottom: 1px solid rgba(26,26,22,0.15) !important; padding: 24px 20px !important; }
+
+  /* EPISODE PAIRING (index cards) */
+  .ep-pairing { grid-template-columns: 1fr !important; }
+  .ep-divider { display: none !important; }
+
+  /* SECTION HEADERS */
+  .section-header { padding: 14px 20px 12px !important; }
+
+  /* NEWSLETTER SECTION */
+  .letter-section { grid-template-columns: 1fr !important; }
+  .letter-main { padding: 28px 20px !important; border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .letter-sidebar { padding: 24px 20px !important; }
+  .letter-toc { grid-template-columns: 1fr !important; }
+  .toc-item:nth-child(even) { border-right: 1px solid rgba(26,26,22,0.1) !important; }
+  .letter-headline { font-size: 26px !important; }
+
+  /* LAB WATCH */
+  .labwatch { padding: 28px 20px !important; }
+  .labwatch-grid { grid-template-columns: 1fr !important; }
+  .lab-item { border-right: none !important; border-bottom: 1px solid rgba(242,234,216,0.12); padding: 20px 0 !important; }
+  .lab-item:last-child { border-bottom: none; }
+
+  /* ABOUT STRIP */
+  .about-strip { grid-template-columns: 1fr !important; }
+  .about-left { padding: 28px 20px !important; border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .about-right { padding: 28px 20px !important; }
+  .hosts-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+  /* FOOTER */
+  footer { grid-template-columns: 1fr 1fr !important; padding: 32px 20px !important; gap: 24px !important; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-legal { flex-direction: column; gap: 6px; }
+
+  /* PODCAST PAGE */
+  .page-hero { grid-template-columns: 1fr !important; padding: 32px 20px !important; gap: 24px !important; }
+  .ph-right, .format-box { display: none !important; }
+  .ph-title, .page-title { font-size: clamp(36px, 9vw, 56px) !important; }
+
+  .ep-featured { grid-template-columns: 1fr !important; }
+  .ep-feat-main { padding: 24px 20px !important; border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .ep-featured-side, .ep-feat-side { display: none !important; }
+  .ep-pair-card { grid-template-columns: 1fr !important; }
+  .ep-x { display: none !important; }
+  .ep-pair-side:first-child { border-right: none !important; border-bottom: 1px solid rgba(26,26,22,0.1); }
+  .ep-feat-title { font-size: 30px !important; }
+
+  .ep2-section { grid-template-columns: 1fr !important; }
+  .ep2-sidebar { border-right: none !important; border-bottom: 2px solid var(--ink); padding: 20px !important; }
+  .ep2-main { padding: 24px 20px !important; }
+  .ep2-pairing { grid-template-columns: 1fr !important; }
+  .ep2-x { display: none !important; }
+  .ep2-side:first-child { border-right: none !important; border-bottom: 1px solid rgba(26,26,22,0.08); }
+
+  .submit-strip { flex-direction: column !important; padding: 28px 20px !important; gap: 20px !important; }
+  .ss-actions { flex-direction: column !important; }
+
+  /* LETTER PAGE */
+  .ltr-hero { grid-template-columns: 1fr !important; padding: 32px 20px 28px !important; gap: 28px !important; }
+  .lh-right, .sub-card { display: none !important; }
+
+  .issue-featured { grid-template-columns: 1fr !important; }
+  .if-main { padding: 24px 20px !important; border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .if-sidebar { display: none !important; }
+  .inside-grid { grid-template-columns: 1fr !important; }
+  .ig-cell:nth-child(2n) { border-right: 1px solid rgba(26,26,22,0.1) !important; }
+  .if-title { font-size: 24px !important; }
+
+  .sections-grid { grid-template-columns: 1fr 1fr !important; }
+  .sg-cell { border-bottom: 1px solid rgba(26,26,22,0.1); }
+
+  .audience-strip { grid-template-columns: 1fr 1fr !important; }
+  .aud-cell { border-bottom: 1px solid rgba(26,26,22,0.1); border-right: none !important; }
+  .aud-cell:nth-child(odd) { border-right: 1px solid rgba(26,26,22,0.1) !important; }
+
+  /* LABS PAGE */
+  .labs-hero { grid-template-columns: 1fr !important; padding: 32px 20px !important; gap: 24px !important; }
+  .lh-right { display: none !important; }
+
+  .featured-labs { grid-template-columns: 1fr !important; }
+  .lab-card { border-right: none !important; border-bottom: 1px solid rgba(26,26,22,0.15) !important; padding: 24px 20px !important; }
+
+  .lt-header { display: none !important; }
+  .lt-row {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 14px 16px !important;
+    gap: 8px;
+  }
+  .lt-row > div:nth-child(3),
+  .lt-row > div:nth-child(4) { display: none !important; }
+  .lt-badge { display: inline-block; margin-top: 4px; }
+
+  /* ABOUT PAGE */
+  .about-hero { grid-template-columns: 1fr !important; padding: 36px 20px !important; gap: 28px !important; }
+  .ah-right { border-left: none !important; padding-left: 0 !important; border-top: 1px solid rgba(242,234,216,0.15); padding-top: 24px !important; }
+  .ah-title { font-size: clamp(40px, 10vw, 64px) !important; }
+
+  .mission-body { grid-template-columns: 1fr !important; }
+  .mission-nav { display: none !important; }
+  .mission-content { padding: 28px 20px !important; }
+  .ms-industries { grid-template-columns: 1fr 1fr !important; }
+  .ind-cell:nth-child(3n) { border-right: 1px solid rgba(26,26,22,0.1) !important; }
+  .ind-cell:nth-child(2n) { border-right: none !important; }
+
+  .founders-section { display: block !important; }
+  .founders-grid { grid-template-columns: 1fr !important; }
+  .fc { border-right: none !important; padding: 28px 20px !important; }
+
+  .join-section { padding: 28px 20px !important; }
+  .join-grid { grid-template-columns: 1fr !important; }
+  .jg-cell { border-right: none !important; border-bottom: 1px solid rgba(26,26,22,0.1); }
+
+  /* FORMS */
+  .form-wrap { grid-template-columns: 1fr !important; }
+  .form-main { padding: 28px 20px !important; border-right: none !important; border-bottom: 2px solid var(--ink); }
+  .form-sidebar { padding: 24px 20px !important; }
+  .field-row { grid-template-columns: 1fr !important; }
+
+  /* THANK YOU PAGES */
+  .confirm-wrap { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .confirm-left { padding: 48px 24px !important; }
+  .confirm-title { font-size: clamp(36px, 9vw, 56px) !important; }
+  .confirm-right { padding: 36px 24px !important; }
+
+  /* GENERAL PADDING */
+  .labwatch-header { flex-direction: column !important; gap: 8px !important; }
+  .letter-cta { flex-direction: column !important; gap: 12px !important; align-items: flex-start !important; }
+  .ep-actions { flex-wrap: wrap !important; }
+
+  /* INLINE GRIDS (letter page what's inside) */
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .hero-headline { font-size: 32px !important; }
+  .hero-actions { flex-direction: column !important; align-items: flex-start !important; }
+  .btn-primary, .btn-ghost, .btn-submit { width: 100%; text-align: center; }
+  .ep-feat-title { font-size: 26px !important; }
+  .lh-stats { flex-direction: column !important; gap: 14px !important; }
+  .hosts-grid { grid-template-columns: 1fr !important; }
+  .ms-industries { grid-template-columns: 1fr !important; }
+  .ind-cell { border-right: none !important; }
+  footer { grid-template-columns: 1fr !important; }
+  .confirm-wrap { grid-template-columns: 1fr !important; }
+  .sections-grid { grid-template-columns: 1fr !important; }
+  .audience-strip { grid-template-columns: 1fr !important; }
+  .aud-cell { border-right: none !important; }
+}
+
+
+/* MOBILE NAV MENU */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 4px;
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mobile-menu {
+  display: none;
+  background: var(--cream);
+  border-bottom: 2px solid var(--ink);
+  padding: 0;
+}
+.mobile-menu a {
+  display: block;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(26,26,22,0.1);
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.15s;
+}
+.mobile-menu a:hover { background: var(--cream-dark); }
+.mobile-menu a.subscribe-link { color: var(--rust); }
+.mobile-menu.open { display: block; }
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+}
+
 </style>
 </head>
 <body>
@@ -159,7 +391,23 @@
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="letter.html" style="color:var(--rust);border-bottom:2px solid var(--rust);">Subscribe</a></li>
   </ul>
+  <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMobileMenu()">☰ Menu</button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="podcast.html">Podcast</a>
+  <a href="letter.html">Newsletter</a>
+  <a href="labs.html">Labs</a>
+  <a href="about.html">About</a>
+  <a href="letter.html" class="subscribe-link">Subscribe</a>
+</div>
+<script>
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  var btn = document.getElementById('menuBtn');
+  btn.textContent = document.getElementById('mobileMenu').classList.contains('open') ? '✕ Close' : '☰ Menu';
+}
+</script>
 
 <div class="ticker">
   <div class="ticker-inner">
