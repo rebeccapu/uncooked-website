@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Submit a Founder — Uncooked Climate Solutions</title>
+<title>Submit a Researcher — Uncooked Climate Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -28,22 +28,25 @@
   .nav-logo .wordmark{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;letter-spacing:-0.02em;color:var(--green);text-decoration:none;display:block;line-height:1.0;}
   .nav-logo .sub{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);font-family:'IBM Plex Mono',monospace;margin-top:3px;}
 
-  .page-hero{background:var(--ink);color:var(--cream);padding:60px 52px 52px;border-bottom:2px solid var(--ink);display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:end;position:relative;overflow:hidden;}
+  /* PAGE HERO */
+  .page-hero{background:var(--green);color:var(--cream);padding:60px 52px 52px;border-bottom:2px solid var(--ink);display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:end;position:relative;overflow:hidden;}
   .page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(242,234,216,0.02) 60px,rgba(242,234,216,0.02) 61px);pointer-events:none;}
   .ph-left{position:relative;z-index:1;}
-  .ph-kicker{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(242,234,216,0.45);margin-bottom:14px;font-family:'IBM Plex Mono',monospace;}
+  .ph-kicker{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(242,234,216,0.5);margin-bottom:14px;font-family:'IBM Plex Mono',monospace;}
   .ph-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5.5vw,64px);font-weight:900;line-height:0.92;letter-spacing:-0.03em;color:var(--cream);margin-bottom:16px;}
-  .ph-title em{font-style:italic;color:rgba(242,234,216,0.45);}
-  .ph-desc{font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(242,234,216,0.6);line-height:1.75;font-weight:300;max-width:480px;}
-  .ph-right{position:relative;z-index:1;border:1px solid rgba(242,234,216,0.12);padding:24px;}
-  .ph-right-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,234,216,0.35);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(242,234,216,0.1);}
-  .ph-right p{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:rgba(242,234,216,0.5);line-height:1.7;font-weight:300;margin-bottom:10px;}
+  .ph-title em{font-style:italic;color:rgba(242,234,216,0.5);}
+  .ph-desc{font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:rgba(242,234,216,0.65);line-height:1.75;font-weight:300;max-width:480px;}
+  .ph-right{position:relative;z-index:1;border:1px solid rgba(242,234,216,0.15);padding:24px;}
+  .ph-right-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,234,216,0.4);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(242,234,216,0.1);}
+  .ph-right p{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:rgba(242,234,216,0.55);line-height:1.7;font-weight:300;margin-bottom:10px;}
   .ph-right p:last-child{margin-bottom:0;}
 
+  /* FORM LAYOUT */
   .form-wrap{display:grid;grid-template-columns:1fr 320px;border-bottom:2px solid var(--ink);}
   .form-main{padding:48px;border-right:2px solid var(--ink);}
   .form-sidebar{padding:32px;background:var(--cream-dark);}
 
+  /* FORM ELEMENTS */
   .field-group{margin-bottom:28px;}
   .field-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:8px;display:block;font-weight:500;}
   .field-hint{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:rgba(26,26,22,0.45);margin-bottom:8px;line-height:1.5;font-weight:300;}
@@ -54,13 +57,20 @@
   input[type="url"],
   select,
   textarea{
-    width:100%;background:var(--cream);border:1px solid rgba(26,26,22,0.25);
-    padding:11px 14px;font-family:'IBM Plex Mono',monospace;font-size:12px;
-    color:var(--ink);outline:none;transition:border-color 0.15s;
-    appearance:none;-webkit-appearance:none;
+    width:100%;
+    background:var(--cream);
+    border:1px solid rgba(26,26,22,0.25);
+    padding:11px 14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink);
+    outline:none;
+    transition:border-color 0.15s;
+    appearance:none;
+    -webkit-appearance:none;
   }
-  input:focus,select:focus,textarea:focus{border-color:var(--green);}
-  input::placeholder,textarea::placeholder{color:rgba(26,26,22,0.3);}
+  input:focus, select:focus, textarea:focus{border-color:var(--green);}
+  input::placeholder, textarea::placeholder{color:rgba(26,26,22,0.3);}
   textarea{resize:vertical;min-height:100px;line-height:1.6;}
   select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1a16' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
 
@@ -74,10 +84,12 @@
   .form-divider{height:1px;background:rgba(26,26,22,0.12);margin:32px 0;}
 
   .submit-row{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(26,26,22,0.12);}
+
   .btn-submit{background:var(--green);color:var(--cream);padding:13px 28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;border:2px solid var(--green);cursor:pointer;transition:all 0.15s;}
   .btn-submit:hover{background:var(--rust);border-color:var(--rust);}
   .submit-note{font-family:'IBM Plex Sans',sans-serif;font-size:11px;color:rgba(26,26,22,0.4);font-weight:300;line-height:1.5;}
 
+  /* SIDEBAR */
   .sidebar-block{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(26,26,22,0.12);}
   .sidebar-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
   .sidebar-label{font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(26,26,22,0.4);margin-bottom:10px;}
@@ -86,6 +98,7 @@
   .sidebar-link{display:inline-block;margin-top:8px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:1px;transition:color 0.15s;}
   .sidebar-link:hover{color:var(--rust);border-color:var(--rust);}
 
+  /* FOOTER */
   footer{background:var(--ink);color:rgba(242,234,216,0.7);padding:40px 48px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:40px;align-items:start;}
   .footer-brand .wordmark{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--cream);display:block;margin-bottom:6px;letter-spacing:-0.02em;text-decoration:none;}
   .footer-brand .tagline{font-size:10px;letter-spacing:0.1em;opacity:0.5;font-style:italic;font-family:'Playfair Display',serif;}
@@ -121,17 +134,17 @@
   </ul>
 </nav>
 
-<!-- HERO — dark background to distinguish from researcher form -->
+<!-- HERO -->
 <div class="page-hero">
   <div class="ph-left">
     <div class="ph-kicker">Get Featured on the Podcast</div>
-    <h1 class="ph-title">Submit a<br><em>Founder</em></h1>
-    <p class="ph-desc">Building something hard in climate? We pair founders with world-leading researchers working on the same problem. Tell us about the company and the challenge — we'll find the right researcher to pair you with.</p>
+    <h1 class="ph-title">Submit a<br><em>Researcher</em></h1>
+    <p class="ph-desc">Know a researcher whose work belongs on Uncooked? We pair world-leading professors and scientists with founders tackling the same hard problem. Tell us about the work — we'll take it from there.</p>
   </div>
   <div class="ph-right">
     <div class="ph-right-label">What we're looking for</div>
-    <p>Climate founders tackling genuinely hard implementation problems — water, wildfire, EVs, mining, data centers, cryosphere, energy storage, animal ag.</p>
-    <p>The best fits are early-stage companies where the science still matters and the implementation challenges are real and unresolved. Student founders welcome.</p>
+    <p>Researchers working on the hardest climate problems — water, wildfire, EVs, mining, data centers, cryosphere, energy storage, animal ag, nuclear, geothermal.</p>
+    <p>The best fits are people whose work has clear real-world implications but hasn't been translated for a practitioner audience yet. Grad students welcome.</p>
     <p>We read every submission. If it's a fit, we'll reach out within two weeks.</p>
   </div>
 </div>
@@ -148,17 +161,17 @@
     <div class="field-row">
       <div class="field-group">
         <label class="field-label">Your Email <span class="field-required">*</span></label>
-        <input type="email" placeholder="you@company.com">
+        <input type="email" placeholder="you@university.edu">
       </div>
       <div class="field-group">
-        <label class="field-label">Your Role at the Company <span class="field-required">*</span></label>
+        <label class="field-label">Your Relationship to the Researcher</label>
         <select>
           <option value="" disabled selected>Select one</option>
-          <option>Founder / Co-founder</option>
-          <option>CEO</option>
-          <option>CTO</option>
-          <option>Other C-suite</option>
-          <option>I'm referring someone else's company</option>
+          <option>I am the researcher</option>
+          <option>Colleague / collaborator</option>
+          <option>Student or advisee</option>
+          <option>Journalist / media</option>
+          <option>Other</option>
         </select>
       </div>
     </div>
@@ -166,38 +179,31 @@
     <div class="form-divider"></div>
 
     <div class="field-group">
-      <label class="field-label">Company Name <span class="field-required">*</span></label>
-      <input type="text" placeholder="Your startup's name">
+      <label class="field-label">Researcher's Name <span class="field-required">*</span></label>
+      <input type="text" placeholder="Professor or researcher's full name">
     </div>
 
     <div class="field-row">
       <div class="field-group">
-        <label class="field-label">Company Website</label>
-        <input type="url" placeholder="https://...">
+        <label class="field-label">Institution <span class="field-required">*</span></label>
+        <input type="text" placeholder="e.g. UC Berkeley, Columbia, MIT">
       </div>
       <div class="field-group">
-        <label class="field-label">Stage</label>
-        <select>
-          <option value="" disabled selected>Select one</option>
-          <option>Idea / Pre-product</option>
-          <option>Pre-seed</option>
-          <option>Seed</option>
-          <option>Series A</option>
-          <option>Series B+</option>
-        </select>
+        <label class="field-label">Department / Lab</label>
+        <input type="text" placeholder="e.g. Dept. of Chemistry · Yaghi Lab">
       </div>
     </div>
 
     <div class="field-group">
-      <label class="field-label">University / Research Origin</label>
-      <div class="field-hint">Did this company spin out of a university lab? If so, which one? Leave blank if not applicable.</div>
-      <input type="text" placeholder="e.g. Spun out of Yaghi Lab, UC Berkeley">
+      <label class="field-label">Link to Their Work</label>
+      <div class="field-hint">Lab page, Google Scholar, recent paper, or LinkedIn — anything that helps us understand the research.</div>
+      <input type="url" placeholder="https://...">
     </div>
 
     <div class="form-divider"></div>
 
     <div class="field-group">
-      <label class="field-label">What sector does the company operate in? <span class="field-required">*</span></label>
+      <label class="field-label">What sector does their research fall into? <span class="field-required">*</span></label>
       <div class="field-hint">Check all that apply.</div>
       <div class="checkbox-group">
         <label class="checkbox-item"><input type="checkbox"><span>Water Technology</span></label>
@@ -216,24 +222,29 @@
     <div class="form-divider"></div>
 
     <div class="field-group">
-      <label class="field-label">What problem are you solving? <span class="field-required">*</span></label>
-      <div class="field-hint">In plain English — what's the hard problem, what's your approach, and what's the implementation challenge you're still wrestling with? Two to four sentences is perfect.</div>
-      <textarea rows="4" placeholder="e.g. We're commercializing MOF-based atmospheric water harvesting from the Yaghi Lab at UC Berkeley. The technology works at the lab scale. The challenge is driving manufacturing cost down low enough to compete with conventional water infrastructure in the markets that need it most..."></textarea>
+      <label class="field-label">What's the core research? <span class="field-required">*</span></label>
+      <div class="field-hint">In plain English — what problem are they working on and what have they found? Two to four sentences is perfect.</div>
+      <textarea rows="4" placeholder="e.g. Prof. X has spent 10 years developing metal-organic frameworks that can pull drinking water from desert air at 7% humidity using only ambient sunlight..."></textarea>
     </div>
 
     <div class="field-group">
-      <label class="field-label">What kind of researcher would you want to be paired with?</label>
-      <div class="field-hint">Is there a specific lab, paper, or academic field whose work is directly relevant to what you're building? Not required, but helpful.</div>
-      <textarea rows="3" placeholder="Optional — e.g. someone working on MOF synthesis and scale-up, or a water policy researcher who understands the regulatory landscape in MENA..."></textarea>
+      <label class="field-label">Why Uncooked?</label>
+      <div class="field-hint">Is there a founder or startup they should be paired with? Is there a gap between their research and what's being built in the market? Anything that helps us understand why now.</div>
+      <textarea rows="3" placeholder="Optional but helpful..."></textarea>
     </div>
 
     <div class="field-group">
-      <label class="field-label">Anything else we should know?</label>
-      <textarea rows="2" placeholder="Optional — upcoming milestones, partnerships, constraints, or context that might be relevant..."></textarea>
+      <label class="field-label">Has the researcher been told about this submission?</label>
+      <select>
+        <option value="" disabled selected>Select one</option>
+        <option>Yes — they're expecting to hear from you</option>
+        <option>Not yet — I wanted to flag it first</option>
+        <option>I am the researcher submitting myself</option>
+      </select>
     </div>
 
     <div class="submit-row">
-      <button class="btn-submit" type="button" onclick="window.location.href='thankyou-founder.html'">Submit →</button>
+      <button class="btn-submit" type="button" onclick="window.location.href='thankyou-researcher.html'">Submit →</button>
       <p class="submit-note">We read every submission and respond to strong fits within two weeks. We don't share your information with anyone.</p>
     </div>
 
@@ -242,23 +253,23 @@
   <div class="form-sidebar">
     <div class="sidebar-block">
       <div class="sidebar-label">What happens next</div>
-      <div class="sidebar-title">We find your match</div>
-      <p class="sidebar-body">If it's a fit, we'll reach out to set up a call — then find the right researcher to pair you with. We handle all the logistics, scheduling, and editing. You just show up and talk honestly about what you're building.</p>
+      <div class="sidebar-title">We read everything</div>
+      <p class="sidebar-body">Every submission gets reviewed. If the research is a fit, we'll reach out to you and the researcher to set up a call. If it's not quite right for now, we may hold it for a future episode.</p>
     </div>
     <div class="sidebar-block">
       <div class="sidebar-label">The Format</div>
-      <div class="sidebar-title">20–25 minutes, unfiltered</div>
-      <p class="sidebar-body">The Pairing format puts you in conversation with a researcher working on the same problem. The conversation is exploratory — what broke first, what still might fail, what the science says vs. what the market will bear. We don't do PR-friendly interviews.</p>
+      <div class="sidebar-title">20–25 minutes, informal</div>
+      <p class="sidebar-body">We pair the researcher with a founder working on a related problem. The conversation is exploratory, not lecture-y — more office hours than TED talk. We handle all the logistics and editing.</p>
     </div>
     <div class="sidebar-block">
-      <div class="sidebar-label">Looking for a researcher instead?</div>
-      <div class="sidebar-title">Submit a Researcher</div>
-      <p class="sidebar-body">Know a professor or scientist whose work belongs on the show? There's a separate form for that.</p>
-      <a href="submit-researcher.html" class="sidebar-link">Submit a Researcher →</a>
+      <div class="sidebar-label">Looking for a founder instead?</div>
+      <div class="sidebar-title">Submit a Founder</div>
+      <p class="sidebar-body">Know a climate startup that should be on the show? There's a separate form for that.</p>
+      <a href="submit-founder.html" class="sidebar-link">Submit a Founder →</a>
     </div>
     <div class="sidebar-block">
       <div class="sidebar-label">Questions?</div>
-      <p class="sidebar-body" style="margin-top:0;">Reach out to the team directly via LinkedIn — links on the <a href="about.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);">About page</a>.</p>
+      <p class="sidebar-body" style="margin-top:0;">Reach out to the team directly via LinkedIn or email — links on the <a href="about.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);">About page</a>.</p>
     </div>
   </div>
 </div>
