@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Submit &#x2014; The Climate Spinout</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+  :root {
+    --spruce:#143d2e;--jade:#1f7a56;--jade-l:#25a06e;
+    --indigo:#312e81;--electric:#6366f1;--electric-l:#818cf8;
+    --wisteria:#a78bfa;--chartreuse:#bef264;
+    --white:#f8fafc;--surface:#ffffff;
+    --ink:#0f1a14;--ink-mid:#1e293b;--muted:#4b5563;--muted-l:#94a3b8;
+    --border:#e2e8f0;--border-mid:#cbd5e1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  nav{background:var(--spruce);border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;z-index:200;height:60px;display:flex;align-items:center;padding:0 32px;gap:0;}
+  .nav-logo{text-decoration:none;display:flex;align-items:center;gap:10px;margin-right:auto;}
+  .nav-logo-mark{width:28px;height:28px;background:var(--chartreuse);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .nav-brand{font-family:'DM Serif Display',serif;font-size:17px;color:#fff;letter-spacing:-0.01em;line-height:1;}
+  .nav-brand span{color:var(--chartreuse);}
+  .nav-links{display:flex;align-items:center;gap:2px;}
+  .nav-links a{text-decoration:none;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500;padding:6px 11px;border-radius:6px;transition:color 0.15s,background 0.15s;white-space:nowrap;}
+  .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.1);}
+  .nav-right{margin-left:16px;display:flex;align-items:center;gap:8px;}
+  .btn-nav{background:var(--chartreuse);color:var(--spruce);font-size:12px;font-weight:600;padding:7px 16px;border-radius:6px;text-decoration:none;transition:opacity 0.15s;white-space:nowrap;}
+  .btn-nav:hover{opacity:0.9;}
+  .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px 8px;color:rgba(255,255,255,0.8);font-size:13px;font-family:'Inter',sans-serif;font-weight:500;margin-left:12px;}
+  .mobile-menu{display:none;background:var(--spruce);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .mobile-menu a{display:block;padding:14px 24px;color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .mobile-menu a:hover{color:#fff;}
+  .mobile-menu.open{display:block;}
+  .btn-primary{background:var(--jade);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s;}
+  .btn-primary:hover{background:var(--jade-l);}
+  .btn-secondary{background:transparent;color:var(--jade);padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;border:1.5px solid var(--jade);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+  .btn-secondary:hover{background:var(--jade);color:#fff;}
+  .btn-ghost{background:rgba(255,255,255,0.1);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.2);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.15);}
+  .btn-chartreuse{background:var(--chartreuse);color:var(--spruce);padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:opacity 0.15s;}
+  .btn-chartreuse:hover{opacity:0.9;}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--jade);margin-bottom:8px;}
+  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,40px);color:var(--ink);line-height:1.15;letter-spacing:-0.02em;margin-bottom:12px;}
+  .section-title em{font-style:italic;color:var(--jade);}
+  .section-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+  .tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;font-size:11px;font-weight:500;letter-spacing:0.02em;}
+  .tag-green{background:#dcfce7;color:#14532d;}
+  .tag-indigo{background:#eef2ff;color:#3730a3;border:0.5px solid #c7d2fe;}
+  .tag-wisteria{background:#f5f3ff;color:#5b21b6;border:0.5px solid #ddd6fe;}
+  .tag-chartreuse{background:#f7fee7;color:#1a2e05;border:0.5px solid #bef264;}
+  .tag-amber{background:#fefce8;color:#713f12;border:0.5px solid #fde68a;}
+  .tag-gray{background:#f1f5f9;color:#475569;border:0.5px solid #cbd5e1;}
+  .tag-spruce{background:#ecfdf5;color:#064e3b;border:0.5px solid #6ee7b7;}
+  .live-dot{width:6px;height:6px;background:var(--chartreuse);border-radius:50%;display:inline-block;margin-right:5px;animation:blink 2s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .card{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.15s,box-shadow 0.15s;}
+  .card:hover{border-color:var(--border-mid);box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+  .field-group{margin-bottom:20px;}
+  .field-label{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:6px;display:block;letter-spacing:0.01em;}
+  .field-required{color:var(--electric);margin-left:2px;}
+  .field-hint{font-size:11px;color:var(--muted-l);margin-bottom:6px;line-height:1.5;}
+  input[type=text],input[type=email],input[type=url],select,textarea{width:100%;background:var(--surface);border:1px solid var(--border-mid);border-radius:8px;padding:9px 13px;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color 0.15s;appearance:none;-webkit-appearance:none;}
+  input:focus,select:focus,textarea:focus{border-color:var(--electric);box-shadow:0 0 0 3px rgba(99,102,241,0.1);}
+  input::placeholder,textarea::placeholder{color:var(--muted-l);}
+  textarea{resize:vertical;min-height:96px;line-height:1.6;}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234b5563' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .checkbox-group{display:flex;flex-direction:column;gap:8px;}
+  .checkbox-item{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
+  .checkbox-item input[type=checkbox]{width:15px;height:15px;margin-top:2px;accent-color:var(--jade);cursor:pointer;flex-shrink:0;}
+  .checkbox-item span{font-size:13px;color:var(--muted);line-height:1.5;}
+  .form-divider{height:1px;background:var(--border);margin:24px 0;}
+  .submit-row{display:flex;align-items:center;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+  .btn-submit{background:var(--jade);color:#fff;padding:11px 28px;border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:background 0.15s;}
+  .btn-submit:hover{background:var(--jade-l);}
+  .submit-note{font-size:11px;color:var(--muted-l);line-height:1.5;}
+  footer{background:var(--spruce);color:rgba(255,255,255,0.6);padding:48px 48px 28px;display:grid;grid-template-columns:240px 1fr 1fr 1fr;gap:40px;}
+  .foot-logo-wrap{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+  .foot-logo-mark{width:24px;height:24px;background:var(--chartreuse);border-radius:5px;display:flex;align-items:center;justify-content:center;}
+  .foot-brand-name{font-family:'DM Serif Display',serif;font-size:15px;color:#fff;}
+  .foot-brand-name span{color:var(--chartreuse);}
+  .foot-tagline{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;margin-top:6px;}
+  .foot-col-title{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .foot-links{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .foot-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:color 0.15s;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .foot-legal{font-size:11px;opacity:0.3;letter-spacing:0.03em;}
+  @media(max-width:768px){
+    nav{padding:0 16px;}
+    .nav-links,.nav-right .btn-nav{display:none;}
+    .mobile-menu-btn{display:block;}
+    footer{grid-template-columns:1fr 1fr;padding:32px 20px 20px;gap:24px;}
+    .foot-brand{grid-column:1/-1;}
+    .foot-bottom{flex-direction:column;gap:6px;}
+    .field-row{grid-template-columns:1fr;}
+  }
+  @media(max-width:480px){footer{grid-template-columns:1fr;}}
+
+  .sub-hero{background:var(--spruce);padding:56px 48px 44px;}
+  .sub-hero-inner{max-width:800px;margin:0 auto;}
+  .sub-main{max-width:800px;margin:0 auto;padding:40px 48px;}
+  .sub-tabs{display:flex;gap:0;border:0.5px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:32px;background:var(--white);}
+  .sub-tab{flex:1;padding:11px 16px;font-size:13px;font-weight:500;text-align:center;cursor:pointer;border:none;background:none;font-family:'Inter',sans-serif;color:var(--muted);transition:all 0.15s;border-right:0.5px solid var(--border);}
+  .sub-tab:last-child{border-right:none;}
+  .sub-tab.active{background:var(--jade);color:#fff;}
+  .sub-tab:hover:not(.active){background:#f0fdf4;color:var(--jade);}
+  .form-panel{display:none;}.form-panel.active{display:block;}
+  .form-section-title{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-l);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  @media(max-width:768px){.sub-hero{padding:40px 20px 32px;}.sub-main{padding:28px 20px;}}
+</style></head><body><nav><a class="nav-logo" href="index.html"><div class="nav-logo-mark"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12 L8 4 L13 12" stroke="#143d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="12" r="1.5" fill="#143d2e"/></svg></div><div class="nav-brand">The Climate <span>Spinout</span></div></a><div class="nav-links"><a href="database.html">Database</a><a href="podcast.html">Podcast</a><a href="letter.html">Newsletter</a><a href="university-labs.html">University Labs</a><a href="about.html">About</a></div><div class="nav-right"><a href="submit.html" class="btn-nav">Submit a Spinout &#x2192;</a></div><button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776; Menu</button></nav><div class="mobile-menu" id="mobileMenu"><a href="database.html">Database</a><a href="podcast.html">Podcast</a><a href="letter.html">Newsletter</a><a href="university-labs.html">University Labs</a><a href="about.html">About</a><a href="submit.html" style="color:var(--chartreuse);font-weight:600;">Submit a Spinout &#x2192;</a></div>
+<div class="sub-hero">
+  <div class="sub-hero-inner">
+    <div class="section-label" style="color:var(--chartreuse);">Get into the database</div>
+    <h1 style="font-family:'DM Serif Display',serif;font-size:clamp(30px,5vw,52px);color:#fff;line-height:1.05;letter-spacing:-0.02em;margin-bottom:12px;">Submit to<br><em style="color:var(--chartreuse);">The Climate Spinout</em></h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.65;">Submit a climate spinout for the database, a researcher or founder for the podcast. We read every submission.</p>
+  </div>
+</div>
+
+<div class="sub-main">
+  <div class="sub-tabs">
+    <button class="sub-tab active" onclick="switchTab('spinout',this)">&#x1F5C4; Submit a Spinout</button>
+    <button class="sub-tab" onclick="switchTab('researcher',this)">&#x1F52C; Submit a Researcher</button>
+    <button class="sub-tab" onclick="switchTab('founder',this)">&#x1F680; Submit a Founder</button>
+  </div>
+
+  <!-- SPINOUT -->
+  <div class="form-panel active" id="tab-spinout">
+    <div class="form-section-title">Company Information</div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Company Name<span class="field-required">*</span></label><input type="text" placeholder="e.g. WaHa / Water Harvesting Inc."></div>
+      <div class="field-group"><label class="field-label">Company Website</label><input type="url" placeholder="https://..."></div>
+    </div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">University of Origin<span class="field-required">*</span></label>
+        <select><option value="" disabled selected>Select university</option>
+          <option>MIT</option><option>Stanford</option><option>UC Berkeley</option>
+          <option>Harvard</option><option>Yale</option><option>Columbia</option>
+          <option>Georgia Tech</option><option>Princeton</option><option>Caltech</option>
+          <option>University of Michigan</option><option>Cornell</option><option>Johns Hopkins</option>
+          <option>Carnegie Mellon</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field-group"><label class="field-label">Lab / Program</label><input type="text" placeholder="e.g. Yaghi Lab, TomKat ITP, The Engine"></div>
+    </div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Funding Stage<span class="field-required">*</span></label>
+        <select><option value="" disabled selected>Select stage</option>
+          <option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Series B</option><option>Series C+</option>
+        </select>
+      </div>
+      <div class="field-group"><label class="field-label">Founding Year</label><input type="text" placeholder="e.g. 2023"></div>
+    </div>
+    <div class="form-divider"></div>
+    <div class="form-section-title">Technology & Sector</div>
+    <div class="field-group"><label class="field-label">Sector<span class="field-required">*</span></label>
+      <div class="checkbox-group" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <label class="checkbox-item"><input type="checkbox"><span>Water Technology</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Energy Storage</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Industrial Decarbonization</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>EVs &amp; Mobility</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Carbon Removal / DAC</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Geothermal / Nuclear</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Agriculture &amp; Food</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Wildfire &amp; Adaptation</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Mining &amp; Materials</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Data Centers</span></label>
+      </div>
+    </div>
+    <div class="field-group"><label class="field-label">What does the company do?<span class="field-required">*</span></label><div class="field-hint">Plain English. Two to four sentences.</div><textarea rows="3" placeholder="e.g. WaHa commercializes MOF-303, a metal-organic framework developed at UC Berkeley that harvests drinking water from desert air at 7% humidity using only ambient sunlight..."></textarea></div>
+    <div class="field-group"><label class="field-label">Founding team / key people</label><input type="text" placeholder="e.g. Prof. Omar Yaghi (scientific founder), ..."></div>
+    <div class="field-group"><label class="field-label">Your relationship to this company</label>
+      <select><option value="" disabled selected>Select one</option><option>Founder / co-founder</option><option>Team member</option><option>Advisor</option><option>Investor</option><option>Researcher / lab PI</option><option>I'm referring from the outside</option></select>
+    </div>
+    <div class="submit-row"><button class="btn-submit" type="button" onclick="window.location.href='thankyou-spinout.html'">Submit to Database &#x2192;</button><p class="submit-note">We review every submission and respond to strong fits within two weeks.</p></div>
+  </div>
+
+  <!-- RESEARCHER -->
+  <div class="form-panel" id="tab-researcher">
+    <div class="form-section-title">About the Researcher</div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Your Name<span class="field-required">*</span></label><input type="text" placeholder="First and last name"></div>
+      <div class="field-group"><label class="field-label">Your Email<span class="field-required">*</span></label><input type="email" placeholder="you@university.edu"></div>
+    </div>
+    <div class="field-group"><label class="field-label">Researcher&#x2019;s Name<span class="field-required">*</span></label><input type="text" placeholder="Professor or researcher's full name"></div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Institution<span class="field-required">*</span></label><input type="text" placeholder="e.g. UC Berkeley"></div>
+      <div class="field-group"><label class="field-label">Lab / Department</label><input type="text" placeholder="e.g. Yaghi Lab, Dept. of Chemistry"></div>
+    </div>
+    <div class="field-group"><label class="field-label">Link to their work</label><input type="url" placeholder="Lab page, Google Scholar, recent paper..."></div>
+    <div class="field-group"><label class="field-label">What&#x2019;s the core research?<span class="field-required">*</span></label><div class="field-hint">Plain English. Two to four sentences.</div><textarea rows="3" placeholder="What problem are they working on? What have they found?"></textarea></div>
+    <div class="field-group"><label class="field-label">Why should they be on The Climate Spinout?</label><textarea rows="2" placeholder="Optional — is there a founder they should be paired with? A gap between their research and what's being built?"></textarea></div>
+    <div class="field-group"><label class="field-label">Has the researcher been told about this submission?</label>
+      <select><option value="" disabled selected>Select one</option><option>Yes &#x2014; they&#x2019;re expecting to hear from you</option><option>Not yet &#x2014; I wanted to flag it first</option><option>I am the researcher</option></select>
+    </div>
+    <div class="submit-row"><button class="btn-submit" type="button" onclick="window.location.href='thankyou-researcher.html'">Submit Researcher &#x2192;</button><p class="submit-note">We read every submission. If it&#x2019;s a fit, we&#x2019;ll reach out within two weeks.</p></div>
+  </div>
+
+  <!-- FOUNDER -->
+  <div class="form-panel" id="tab-founder">
+    <div class="form-section-title">About the Founder / Company</div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Your Name<span class="field-required">*</span></label><input type="text" placeholder="First and last name"></div>
+      <div class="field-group"><label class="field-label">Your Email<span class="field-required">*</span></label><input type="email" placeholder="you@company.com"></div>
+    </div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Company Name<span class="field-required">*</span></label><input type="text" placeholder="Your startup&#x2019;s name"></div>
+      <div class="field-group"><label class="field-label">Your Role<span class="field-required">*</span></label>
+        <select><option value="" disabled selected>Select one</option><option>Founder / Co-founder</option><option>CEO</option><option>CTO</option><option>Other C-suite</option><option>I&#x2019;m referring someone else&#x2019;s company</option></select>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field-group"><label class="field-label">Company Website</label><input type="url" placeholder="https://..."></div>
+      <div class="field-group"><label class="field-label">Stage</label>
+        <select><option value="" disabled selected>Select one</option><option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Series B</option><option>Series C+</option></select>
+      </div>
+    </div>
+    <div class="field-group"><label class="field-label">University / Research Origin</label><div class="field-hint">Did this company spin out of a university lab?</div><input type="text" placeholder="e.g. Spun out of Yaghi Lab, UC Berkeley"></div>
+    <div class="field-group"><label class="field-label">What problem are you solving?<span class="field-required">*</span></label><div class="field-hint">Plain English. Two to four sentences. What&#x2019;s hard, what&#x2019;s your approach, what&#x2019;s still unsolved.</div><textarea rows="3" placeholder="e.g. We&#x2019;re commercializing MOF-based atmospheric water harvesting..."></textarea></div>
+    <div class="field-group"><label class="field-label">What kind of researcher would you want to be paired with?</label><textarea rows="2" placeholder="Optional &#x2014; a specific lab, paper, or academic field whose work is directly relevant..."></textarea></div>
+    <div class="submit-row"><button class="btn-submit" type="button" onclick="window.location.href='thankyou-founder.html'">Submit Founder &#x2192;</button><p class="submit-note">We pair you with a researcher working on the same problem. The conversation is informal, curious, 25 minutes.</p></div>
+  </div>
+</div>
+
+<script>
+function switchTab(id, el) {
+  document.querySelectorAll('.form-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.sub-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('tab-'+id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+<footer><div><div class="foot-logo-wrap"><div class="foot-logo-mark"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12 L8 4 L13 12" stroke="#143d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="12" r="1.5" fill="#143d2e"/></svg></div><div class="foot-brand-name">The Climate <span>Spinout</span></div></div><p class="foot-tagline">The live database of university climate spinouts. Inside signal on what's coming out of labs &#x2014; before it shows up anywhere else.</p></div><div><div class="foot-col-title">Platform</div><ul class="foot-links"><li><a href="database.html">Spinout Database</a></li><li><a href="university-labs.html">University Labs</a></li><li><a href="submit.html">Submit a Spinout</a></li><li><a href="letter.html">Newsletter</a></li></ul></div><div><div class="foot-col-title">Podcast</div><ul class="foot-links"><li><a href="podcast.html">All Episodes</a></li><li><a href="submit.html">Submit a Researcher</a></li><li><a href="submit.html">Submit a Founder</a></li></ul></div><div><div class="foot-col-title">Company</div><ul class="foot-links"><li><a href="about.html">About</a></li><li><a href="#">Spotify</a></li><li><a href="#">Apple Podcasts</a></li><li><a href="#">LinkedIn</a></li></ul></div><div class="foot-bottom"><span class="foot-legal">&#169; 2026 The Climate Spinout. All rights reserved.</span><span class="foot-legal">Built in university buildings. Not with VC money (yet).</span></div></footer><script>function toggleMenu(){var m=document.getElementById("mobileMenu");m.classList.toggle("open");document.getElementById("menuBtn").textContent=m.classList.contains("open")?"&#10005; Close":"&#9776; Menu";}</script></body></html>

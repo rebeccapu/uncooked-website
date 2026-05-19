@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Database &#x2014; The Climate Spinout</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+  :root {
+    --spruce:#143d2e;--jade:#1f7a56;--jade-l:#25a06e;
+    --indigo:#312e81;--electric:#6366f1;--electric-l:#818cf8;
+    --wisteria:#a78bfa;--chartreuse:#bef264;
+    --white:#f8fafc;--surface:#ffffff;
+    --ink:#0f1a14;--ink-mid:#1e293b;--muted:#4b5563;--muted-l:#94a3b8;
+    --border:#e2e8f0;--border-mid:#cbd5e1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  nav{background:var(--spruce);border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;z-index:200;height:60px;display:flex;align-items:center;padding:0 32px;gap:0;}
+  .nav-logo{text-decoration:none;display:flex;align-items:center;gap:10px;margin-right:auto;}
+  .nav-logo-mark{width:28px;height:28px;background:var(--chartreuse);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .nav-brand{font-family:'DM Serif Display',serif;font-size:17px;color:#fff;letter-spacing:-0.01em;line-height:1;}
+  .nav-brand span{color:var(--chartreuse);}
+  .nav-links{display:flex;align-items:center;gap:2px;}
+  .nav-links a{text-decoration:none;color:rgba(255,255,255,0.65);font-size:13px;font-weight:500;padding:6px 11px;border-radius:6px;transition:color 0.15s,background 0.15s;white-space:nowrap;}
+  .nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.1);}
+  .nav-right{margin-left:16px;display:flex;align-items:center;gap:8px;}
+  .btn-nav{background:var(--chartreuse);color:var(--spruce);font-size:12px;font-weight:600;padding:7px 16px;border-radius:6px;text-decoration:none;transition:opacity 0.15s;white-space:nowrap;}
+  .btn-nav:hover{opacity:0.9;}
+  .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px 8px;color:rgba(255,255,255,0.8);font-size:13px;font-family:'Inter',sans-serif;font-weight:500;margin-left:12px;}
+  .mobile-menu{display:none;background:var(--spruce);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .mobile-menu a{display:block;padding:14px 24px;color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .mobile-menu a:hover{color:#fff;}
+  .mobile-menu.open{display:block;}
+  .btn-primary{background:var(--jade);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s;}
+  .btn-primary:hover{background:var(--jade-l);}
+  .btn-secondary{background:transparent;color:var(--jade);padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;border:1.5px solid var(--jade);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+  .btn-secondary:hover{background:var(--jade);color:#fff;}
+  .btn-ghost{background:rgba(255,255,255,0.1);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.2);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.15);}
+  .btn-chartreuse{background:var(--chartreuse);color:var(--spruce);padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:opacity 0.15s;}
+  .btn-chartreuse:hover{opacity:0.9;}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--jade);margin-bottom:8px;}
+  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,40px);color:var(--ink);line-height:1.15;letter-spacing:-0.02em;margin-bottom:12px;}
+  .section-title em{font-style:italic;color:var(--jade);}
+  .section-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+  .tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;font-size:11px;font-weight:500;letter-spacing:0.02em;}
+  .tag-green{background:#dcfce7;color:#14532d;}
+  .tag-indigo{background:#eef2ff;color:#3730a3;border:0.5px solid #c7d2fe;}
+  .tag-wisteria{background:#f5f3ff;color:#5b21b6;border:0.5px solid #ddd6fe;}
+  .tag-chartreuse{background:#f7fee7;color:#1a2e05;border:0.5px solid #bef264;}
+  .tag-amber{background:#fefce8;color:#713f12;border:0.5px solid #fde68a;}
+  .tag-gray{background:#f1f5f9;color:#475569;border:0.5px solid #cbd5e1;}
+  .tag-spruce{background:#ecfdf5;color:#064e3b;border:0.5px solid #6ee7b7;}
+  .live-dot{width:6px;height:6px;background:var(--chartreuse);border-radius:50%;display:inline-block;margin-right:5px;animation:blink 2s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .card{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.15s,box-shadow 0.15s;}
+  .card:hover{border-color:var(--border-mid);box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+  .field-group{margin-bottom:20px;}
+  .field-label{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:6px;display:block;letter-spacing:0.01em;}
+  .field-required{color:var(--electric);margin-left:2px;}
+  .field-hint{font-size:11px;color:var(--muted-l);margin-bottom:6px;line-height:1.5;}
+  input[type=text],input[type=email],input[type=url],select,textarea{width:100%;background:var(--surface);border:1px solid var(--border-mid);border-radius:8px;padding:9px 13px;font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color 0.15s;appearance:none;-webkit-appearance:none;}
+  input:focus,select:focus,textarea:focus{border-color:var(--electric);box-shadow:0 0 0 3px rgba(99,102,241,0.1);}
+  input::placeholder,textarea::placeholder{color:var(--muted-l);}
+  textarea{resize:vertical;min-height:96px;line-height:1.6;}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234b5563' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .checkbox-group{display:flex;flex-direction:column;gap:8px;}
+  .checkbox-item{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
+  .checkbox-item input[type=checkbox]{width:15px;height:15px;margin-top:2px;accent-color:var(--jade);cursor:pointer;flex-shrink:0;}
+  .checkbox-item span{font-size:13px;color:var(--muted);line-height:1.5;}
+  .form-divider{height:1px;background:var(--border);margin:24px 0;}
+  .submit-row{display:flex;align-items:center;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+  .btn-submit{background:var(--jade);color:#fff;padding:11px 28px;border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:background 0.15s;}
+  .btn-submit:hover{background:var(--jade-l);}
+  .submit-note{font-size:11px;color:var(--muted-l);line-height:1.5;}
+  footer{background:var(--spruce);color:rgba(255,255,255,0.6);padding:48px 48px 28px;display:grid;grid-template-columns:240px 1fr 1fr 1fr;gap:40px;}
+  .foot-logo-wrap{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+  .foot-logo-mark{width:24px;height:24px;background:var(--chartreuse);border-radius:5px;display:flex;align-items:center;justify-content:center;}
+  .foot-brand-name{font-family:'DM Serif Display',serif;font-size:15px;color:#fff;}
+  .foot-brand-name span{color:var(--chartreuse);}
+  .foot-tagline{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;margin-top:6px;}
+  .foot-col-title{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .foot-links{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .foot-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:13px;transition:color 0.15s;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .foot-legal{font-size:11px;opacity:0.3;letter-spacing:0.03em;}
+  @media(max-width:768px){
+    nav{padding:0 16px;}
+    .nav-links,.nav-right .btn-nav{display:none;}
+    .mobile-menu-btn{display:block;}
+    footer{grid-template-columns:1fr 1fr;padding:32px 20px 20px;gap:24px;}
+    .foot-brand{grid-column:1/-1;}
+    .foot-bottom{flex-direction:column;gap:6px;}
+    .field-row{grid-template-columns:1fr;}
+  }
+  @media(max-width:480px){footer{grid-template-columns:1fr;}}
+
+  .db-hero{background:var(--spruce);padding:52px 48px 40px;}
+  .db-hero-inner{max-width:1100px;margin:0 auto;}
+  .db-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,4.5vw,52px);color:#fff;line-height:1.05;letter-spacing:-0.02em;margin-bottom:10px;}
+  .db-hero h1 em{font-style:italic;color:var(--chartreuse);}
+  .db-hero p{font-size:15px;color:rgba(255,255,255,0.6);max-width:540px;margin-bottom:28px;line-height:1.65;}
+  .db-stat-row{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}
+  .db-stat-item{text-align:left;}
+  .db-stat-item .n{font-family:'DM Serif Display',serif;font-size:28px;color:var(--chartreuse);line-height:1;}
+  .db-stat-item .l{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px;}
+
+  .db-controls{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 48px;position:sticky;top:60px;z-index:100;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .db-controls-inner{max-width:1100px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap;width:100%;}
+  .db-search{flex:1;min-width:200px;padding:8px 13px;border:1px solid var(--border-mid);border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;background:var(--white);outline:none;}
+  .db-search:focus{border-color:var(--electric);box-shadow:0 0 0 3px rgba(99,102,241,0.1);}
+  .filter-select{padding:8px 32px 8px 12px;border:1px solid var(--border-mid);border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;background:var(--white);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%234b5563' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;cursor:pointer;outline:none;color:var(--ink);appearance:none;-webkit-appearance:none;}
+  .filter-select:focus{border-color:var(--electric);}
+  .db-count-badge{font-size:12px;color:var(--muted-l);white-space:nowrap;margin-left:auto;}
+
+  .db-main{max-width:1100px;margin:0 auto;padding:32px 48px;}
+  .db-table{width:100%;border-collapse:collapse;}
+  .db-table-head{background:#f8fafc;border:0.5px solid var(--border);border-radius:8px 8px 0 0;}
+  .db-table th{padding:10px 14px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-l);text-align:left;border-bottom:1px solid var(--border);}
+  .db-table td{padding:14px;border-bottom:0.5px solid var(--border);vertical-align:top;}
+  .db-table tr:hover td{background:#fafafa;}
+  .db-table tr:last-child td{border-bottom:none;}
+  .co-name-cell{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;margin-bottom:3px;}
+  .co-founders{font-size:11px;color:var(--muted-l);margin-top:2px;}
+  .co-desc-cell{font-size:12px;color:var(--muted);line-height:1.55;max-width:280px;}
+  .stage-badge{display:inline-block;padding:3px 9px;border-radius:100px;font-size:11px;font-weight:500;}
+  .stage-preseed{background:#f0fdf4;color:#14532d;border:0.5px solid #86efac;}
+  .stage-seed{background:#ecfdf5;color:#065f46;border:0.5px solid #6ee7b7;}
+  .stage-a{background:#eef2ff;color:#3730a3;border:0.5px solid #c7d2fe;}
+  .stage-b{background:#f5f3ff;color:#5b21b6;border:0.5px solid #ddd6fe;}
+  .stage-c{background:#fef9ee;color:#713f12;border:0.5px solid #fde68a;}
+  .verified-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--jade);font-weight:500;}
+
+  .airtable-note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .airtable-note-icon{font-size:20px;flex-shrink:0;}
+  .airtable-note-text{font-size:13px;color:#713f12;line-height:1.5;}
+  .airtable-note-text strong{font-weight:600;}
+
+  @media(max-width:768px){
+    .db-hero{padding:40px 20px 32px;}
+    .db-controls{padding:12px 20px;}
+    .db-main{padding:24px 20px;}
+    .db-table th:nth-child(3),.db-table td:nth-child(3),
+    .db-table th:nth-child(5),.db-table td:nth-child(5){display:none;}
+  }
+</style></head><body><nav><a class="nav-logo" href="index.html"><div class="nav-logo-mark"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12 L8 4 L13 12" stroke="#143d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="12" r="1.5" fill="#143d2e"/></svg></div><div class="nav-brand">The Climate <span>Spinout</span></div></a><div class="nav-links"><a href="database.html" class="active">Database</a><a href="podcast.html">Podcast</a><a href="letter.html">Newsletter</a><a href="university-labs.html">University Labs</a><a href="about.html">About</a></div><div class="nav-right"><a href="submit.html" class="btn-nav">Submit a Spinout &#x2192;</a></div><button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">&#9776; Menu</button></nav><div class="mobile-menu" id="mobileMenu"><a href="database.html">Database</a><a href="podcast.html">Podcast</a><a href="letter.html">Newsletter</a><a href="university-labs.html">University Labs</a><a href="about.html">About</a><a href="submit.html" style="color:var(--chartreuse);font-weight:600;">Submit a Spinout &#x2192;</a></div>
+<div class="db-hero">
+  <div class="db-hero-inner">
+    <div class="section-label" style="color:var(--chartreuse);">Live Database</div>
+    <h1>University climate spinouts, <em>tracked.</em></h1>
+    <p>Every climate tech company spinning out of top university labs. Filterable by university, sector, stage, and technology. Updated continuously.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="submit.html" class="btn-chartreuse">Submit a Spinout &#x2192;</a>
+      <a href="university-labs.html" class="btn-ghost">Browse University Programs</a>
+    </div>
+    <div class="db-stat-row">
+      <div class="db-stat-item"><div class="n">247</div><div class="l">Spinouts</div></div>
+      <div class="db-stat-item"><div class="n">18</div><div class="l">Universities</div></div>
+      <div class="db-stat-item"><div class="n">52</div><div class="l">Programs</div></div>
+      <div class="db-stat-item"><div class="n">9</div><div class="l">Sectors</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="db-controls">
+  <div class="db-controls-inner">
+    <input class="db-search" type="text" placeholder="Search spinouts, universities, founders..." id="dbSearch" oninput="filterDB()">
+    <select class="filter-select" id="filterUniv" onchange="filterDB()">
+      <option value="">All Universities</option>
+      <option>MIT</option><option>Stanford</option><option>UC Berkeley</option>
+      <option>Harvard</option><option>Yale</option><option>Columbia</option>
+      <option>Georgia Tech</option><option>Princeton</option><option>Caltech</option>
+    </select>
+    <select class="filter-select" id="filterSector" onchange="filterDB()">
+      <option value="">All Sectors</option>
+      <option>Water</option><option>Energy Storage</option><option>Industrial</option>
+      <option>Carbon Removal</option><option>EVs &amp; Mobility</option>
+      <option>Geothermal</option><option>Fusion</option><option>Agriculture</option>
+      <option>Carbon Capture</option>
+    </select>
+    <select class="filter-select" id="filterStage" onchange="filterDB()">
+      <option value="">All Stages</option>
+      <option>Pre-seed</option><option>Seed</option>
+      <option>Series A</option><option>Series B</option><option>Series C+</option>
+    </select>
+    <span class="db-count-badge" id="dbCount">Showing 15 of 247</span>
+  </div>
+</div>
+
+<div class="db-main">
+  <div class="airtable-note">
+    <div class="airtable-note-icon">&#x26A1;</div>
+    <div class="airtable-note-text"><strong>Live database coming soon.</strong> This page will pull directly from our Airtable base via API. Below is a seed dataset of verified spinouts. <a href="submit.html" style="color:#1f7a56;font-weight:500;">Submit a spinout</a> to be included at launch.</div>
+  </div>
+
+  <table class="db-table" id="dbTable">
+    <thead class="db-table-head">
+      <tr>
+        <th style="min-width:180px;">Company</th>
+        <th style="min-width:100px;">University</th>
+        <th style="min-width:240px;">Description</th>
+        <th>Sector</th>
+        <th style="min-width:90px;">Stage</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="dbBody">
+    </tbody>
+  </table>
+</div>
+
+<script>
+const DATA = [
+  {name:"WaHa / Novnat",founders:"Yaghi Lab",univ:"UC Berkeley",desc:"MOF-303 atmospheric water harvesting — pulls drinking water from air at 7% humidity using only sunlight. Spinout of Prof. Omar Yaghi's Nobel-winning lab.",sector:"Water",stage:"Seed",verified:true},
+  {name:"Commonwealth Fusion Systems",founders:"Dennis Whyte Lab",univ:"MIT",desc:"High-temperature superconducting magnets for compact fusion reactors. SPARC reactor targets net energy gain. $2B+ raised.",sector:"Fusion",stage:"Series B+",verified:true},
+  {name:"Sublime Systems",founders:"Yet-Ming Chiang, Leah Ellis",univ:"MIT",desc:"Zero-carbon Portland cement via electrochemistry at ambient temperature. No fossil fuels, no limestone. $87M DOE grant. First commercial plant in Holyoke, MA.",sector:"Industrial",stage:"Series B",verified:true},
+  {name:"Antora Energy",founders:"Andrew Ponec, Justin Briggs",univ:"Stanford",desc:"Thermal battery stores renewable energy as heat in solid carbon. Supplies 24/7 industrial heat and power. $237M raised. TomKat ITP alumnus.",sector:"Energy Storage",stage:"Series B",verified:true},
+  {name:"Fervo Energy",founders:"Tim Latimer",univ:"Stanford",desc:"Next-generation geothermal using horizontal drilling from oil and gas. 24/7 clean power to Google data centers. TomKat + Precourt alumnus.",sector:"Geothermal",stage:"Series C+",verified:true},
+  {name:"Form Energy",founders:"Yet-Ming Chiang, William Woodford",univ:"MIT",desc:"Iron-air batteries for multi-day grid energy storage. Up to 100 hours of electricity. The Engine portfolio company.",sector:"Energy Storage",stage:"Series C+",verified:true},
+  {name:"Quaise Energy",founders:"MIT PSFC",univ:"MIT",desc:"Millimeter-wave drilling technology for deep geothermal access — vaporizes rock to reach depths 5x current limits. $95M raised.",sector:"Geothermal",stage:"Series A",verified:true},
+  {name:"Oxylus Energy",founders:"Perry Bakas, Conor Rooney",univ:"Yale",desc:"Direct electrochemical CO2-to-methanol conversion. One-step process for green e-methanol. ClimateHaven portfolio. $4.5M from Toyota Ventures.",sector:"Carbon Removal",stage:"Seed",verified:true},
+  {name:"WeaveGrid",founders:"Apoorv Bhargava, John Taggart",univ:"Stanford",desc:"Software for utilities, automakers, and charging companies to optimize EV charging. $78M raised. Stanford Climate Ventures alumnus.",sector:"EVs & Mobility",stage:"Series B",verified:true},
+  {name:"Nitricity",founders:"Stanford",univ:"Stanford",desc:"On-site fertilizer production from air, water, and renewable electricity — replacing fossil-fuel-derived nitrogen fertilizers at the farm level.",sector:"Agriculture",stage:"Series A",verified:true},
+  {name:"Kula Bio",founders:"Harvard / Daniel Nocera Lab",univ:"Harvard",desc:"Engineered nitrogen-fixing microbes for sustainable farming. Reduces synthetic fertilizer dependency. Harvard i-lab climate alumnus.",sector:"Agriculture",stage:"Series A",verified:true},
+  {name:"Boston Metal",founders:"MIT",univ:"MIT",desc:"Molten oxide electrolysis for zero-carbon steel production. Replaces coal-fired blast furnaces. $262M raised.",sector:"Industrial",stage:"Series C+",verified:true},
+  {name:"Osmoses",founders:"MIT / The Engine",univ:"MIT",desc:"Gas-filtering membranes for energy-efficient separation in chemicals and fuels. Alternative to thermal separation. The Engine portfolio.",sector:"Industrial",stage:"Seed",verified:true},
+  {name:"TandemPV",founders:"Stanford TomKat ITP",univ:"Stanford",desc:"High-efficiency tandem solar cells combining perovskite and silicon. Automated factory line in Fremont, CA.",sector:"Energy Storage",stage:"Series A",verified:true},
+  {name:"Hago Energetics",founders:"Harvard i-lab",univ:"Harvard",desc:"Sustainable solutions for the climate crisis. Accepted into ARCHES California Hydrogen Hub. $2M DOE grant for scale-up.",sector:"Carbon Capture",stage:"Seed",verified:false},
+];
+
+function renderRows(rows){
+  var tbody=document.getElementById("dbBody");
+  var stageClass={
+    "Pre-seed":"stage-preseed","Seed":"stage-seed",
+    "Series A":"stage-a","Series B":"stage-b",
+    "Series B+":"stage-b","Series C+":"stage-c"
+  };
+  tbody.innerHTML=rows.map(function(r){
+    var sc=stageClass[r.stage]||"stage-seed";
+    var ver=r.verified
+      ?'<span class="verified-badge"><span class="live-dot" style="background:var(--jade);"></span>Verified</span>'
+      :'<span style="font-size:10px;color:var(--muted-l);">Submitted</span>';
+    return '<tr data-univ="'+r.univ+'" data-sector="'+r.sector+'" data-stage="'+r.stage+'">'
+      +'<td><div class="co-name-cell">'+r.name+'</div><div class="co-founders">'+r.founders+'</div></td>'
+      +'<td><span style="font-size:12px;font-weight:500;color:var(--electric);">'+r.univ+'</span></td>'
+      +'<td><div class="co-desc-cell">'+r.desc+'</div></td>'
+      +'<td><span class="tag tag-gray" style="white-space:nowrap;">'+r.sector+'</span></td>'
+      +'<td><span class="stage-badge '+sc+'">'+r.stage+'</span></td>'
+      +'<td>'+ver+'</td>'
+      +'</tr>';
+  }).join("");
+}
+
+function filterDB(){
+  var q=document.getElementById("dbSearch").value.toLowerCase();
+  var u=document.getElementById("filterUniv").value;
+  var s=document.getElementById("filterSector").value;
+  var st=document.getElementById("filterStage").value;
+  var filtered=DATA.filter(function(r){
+    var match=true;
+    if(q) match=match&&(r.name.toLowerCase().includes(q)||r.desc.toLowerCase().includes(q)||r.founders.toLowerCase().includes(q)||r.univ.toLowerCase().includes(q));
+    if(u) match=match&&r.univ===u;
+    if(s) match=match&&r.sector===s;
+    if(st) match=match&&r.stage===st;
+    return match;
+  });
+  renderRows(filtered);
+  document.getElementById("dbCount").textContent="Showing "+filtered.length+" of 247";
+}
+
+renderRows(DATA);
+</script>
+<footer><div><div class="foot-logo-wrap"><div class="foot-logo-mark"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12 L8 4 L13 12" stroke="#143d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="12" r="1.5" fill="#143d2e"/></svg></div><div class="foot-brand-name">The Climate <span>Spinout</span></div></div><p class="foot-tagline">The live database of university climate spinouts. Inside signal on what's coming out of labs &#x2014; before it shows up anywhere else.</p></div><div><div class="foot-col-title">Platform</div><ul class="foot-links"><li><a href="database.html">Spinout Database</a></li><li><a href="university-labs.html">University Labs</a></li><li><a href="submit.html">Submit a Spinout</a></li><li><a href="letter.html">Newsletter</a></li></ul></div><div><div class="foot-col-title">Podcast</div><ul class="foot-links"><li><a href="podcast.html">All Episodes</a></li><li><a href="submit.html">Submit a Researcher</a></li><li><a href="submit.html">Submit a Founder</a></li></ul></div><div><div class="foot-col-title">Company</div><ul class="foot-links"><li><a href="about.html">About</a></li><li><a href="#">Spotify</a></li><li><a href="#">Apple Podcasts</a></li><li><a href="#">LinkedIn</a></li></ul></div><div class="foot-bottom"><span class="foot-legal">&#169; 2026 The Climate Spinout. All rights reserved.</span><span class="foot-legal">Built in university buildings. Not with VC money (yet).</span></div></footer><script>function toggleMenu(){var m=document.getElementById("mobileMenu");m.classList.toggle("open");document.getElementById("menuBtn").textContent=m.classList.contains("open")?"&#10005; Close":"&#9776; Menu";}</script></body></html>
